@@ -15,20 +15,21 @@ const BaseSearch = () => {
       <BaseInput
         placeholder="Vai pra onde?"
         type="text"
+        size="380"
       />
 
       <span>
         <BaseInput
           placeholder="Entrada"
           type="text"
-          size="120"
+          size="160"
           onFocus={(focus) => focus.target.type = "date"}
           onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
         />
         <BaseInput
           placeholder="Saída"
           type="text"
-          size="120"
+          size="160"
           onFocus={(focus) => focus.target.type = "date"}
           onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
         />

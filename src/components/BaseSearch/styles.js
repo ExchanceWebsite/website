@@ -6,12 +6,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   background-color: white;
-  box-shadow: #ebebeb 0px 0px 10px;
-  max-width: 1150px;
+  box-shadow: grey 0px 0px 10px;
+  max-width: 1266px;
   width: 100%;
   height: 150px;
   border-radius: 10px;
-  margin: 50%;
+  z-index: 20;
 
   span {
     display: flex;

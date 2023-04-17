@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     border: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: 'Poppins', sans-serif;
   }
 `
 export default GlobalStyles;
