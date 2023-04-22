@@ -4,20 +4,23 @@ import bg2 from '../../assets/home2-bg.png'
 
 export const FirstSection = styled.section`
   background-image: url(${bg});
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   height: 100vh;
 `;
 
 export const Content1 = styled.div`
-  padding-top: 490px;
+  padding-top: 350px;
 `;
 
 export const Content2 = styled.div`
-  background-color: black;
-  height: 20px;
+  display: grid;
   width: 100%;
-  height: 600px;
+  justify-content: center;
+`;
+
+export const CarouselWrapper = styled.div`
+  display: inline;
 `;
 
 export const CardModule = styled.div`
