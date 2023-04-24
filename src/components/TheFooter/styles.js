@@ -6,7 +6,7 @@ export const Wrapper = styled.footer`
   width: 100%;
   background-color: ${colors.darker_grey};
   z-index: 10;
-  padding: 30px;
+  padding: 30px 0;
 `
 
 export const Link = styled.a`
@@ -55,7 +55,6 @@ justify-content: center;
 `
 
 export const Faixa = styled.div`
-  padding: 0 600px;
   align-items: center;
   display: flex;
   flex-direction: column;

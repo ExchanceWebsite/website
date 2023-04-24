@@ -9,5 +9,9 @@ const GlobalStyles = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     font-family: 'Poppins', sans-serif;
   }
+
+  body {
+    overflow-x: hidden;
+  }
 `
 export default GlobalStyles;

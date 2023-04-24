@@ -7,12 +7,22 @@ import brownLogo from '../../assets/brown-logo.png'
 import BaseButton from '../BaseButton';
 import colors from '../../styles/theme';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 const home = true
 
 const Logo = () => {
-  const [blueHeader, setBlueHeader] = useState(false)
+  var currentHome = false
+  const location = useLocation()
+  
+  if (location.pathname === '/') {
+    currentHome = true
+  }
+
+  const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
-    if (window.scrollY > 240 && home) {
+    if (window.scrollY > 240 || !currentHome) {
       setBlueHeader(true)
     } else {
       setBlueHeader(false)
@@ -39,9 +49,16 @@ const Logo = () => {
 }
 
 const Button = ({ children }) => {
-  const [blueHeader, setBlueHeader] = useState(false)
+  var currentHome = false
+  const location = useLocation()
+  
+  if (location.pathname === '/') {
+    currentHome = true
+  }
+
+  const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
-    if (window.scrollY > 240 && home) {
+    if (window.scrollY > 240 || !currentHome) {
       setBlueHeader(true)
     } else {
       setBlueHeader(false)
@@ -71,9 +88,16 @@ const Button = ({ children }) => {
 }
 
 const Wrapper = ({ children }) => {
-  const [blueHeader, setBlueHeader] = useState(false)
+  var currentHome = false
+  const location = useLocation()
+  
+  if (location.pathname === '/') {
+    currentHome = true
+  }
+
+  const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
-    if (window.scrollY > 240 && home) {
+    if (window.scrollY > 240 || !currentHome) {
       setBlueHeader(true)
     } else {
       setBlueHeader(false)
@@ -88,7 +112,6 @@ const Wrapper = ({ children }) => {
         <S.Wrapper
           style={{
             backgroundColor: colors.primary_blue,
-            // position: 'fixed'
           }}
         >
           {children}
@@ -110,11 +133,19 @@ const TheHeader = () => {
   return (
     <Wrapper>
       <S.Container>
-        <Logo />
+        <Link to='/'>
+          <Logo />
+        </Link>
         <S.Navbar>
-          <S.Link>Início</S.Link>
-          <S.Link>Busca</S.Link>
-          <S.Link>Login</S.Link>
+          <Link to='/'>
+            <S.Link>Início</S.Link>
+          </Link>
+          <Link to='/busca'>
+            <S.Link>Busca</S.Link>
+          </Link>
+          <Link to='/login'>
+            <S.Link>Login</S.Link>
+          </Link>
         </S.Navbar>
         <Button
           children={<S.Link>Cadastre-se</S.Link>}

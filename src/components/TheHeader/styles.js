@@ -3,7 +3,7 @@ import BaseContainer from '../BaseContainer';
 import colors from '../../styles/theme';
 
 export const Wrapper = styled.header`
-  width: 100%;
+  width: 100vw;
   background-color: transparent;
   height: 85px;
   align-items: center;
