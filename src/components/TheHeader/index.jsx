@@ -54,8 +54,9 @@ const Button = ({ children }) => {
     {
       ...blueHeader ? (
         <BaseButton
-          theme={colors.light_brown}
+          theme={colors.darker_brown}
           size='230'
+          color='blue !important'
         >{children}
         </BaseButton>
       ) : (

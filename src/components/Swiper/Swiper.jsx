@@ -15,7 +15,7 @@ export default class Carroussel extends React.Component {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation={true}
-        // autoplay={{ delay: 1000 }}
+        autoplay={{ delay: 2000 }}
         direction={'horizontal'}
         loop={true}
         slidesPerView={'1'}

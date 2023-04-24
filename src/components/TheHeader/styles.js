@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import BaseContainer from '../BaseContainer';
 import colors from '../../styles/theme';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.header`
   width: 100%;
   background-color: transparent;
   height: 85px;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styles';
 import BaseSearch from '../../components/BaseSearch';
 import BaseContainer from '../../components/BaseContainer';
@@ -14,7 +14,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Carroussel from '../../components/Swiper/Swiper';
-// import Carroussel from '../../components/Swiper/';
+import questions from './mock';
+import TheFooter from '../../components/TheFooter';
 
 const Home = () => {
   return (
@@ -46,25 +47,40 @@ const Home = () => {
       </S.FirstSection>
       <S.SecSection>
         <BaseContainer>
-
           <Carroussel />
           <BaseButton
-              children="Buscar destinos"
-              theme='transparent'
-              size='200'
-              border='2px solid rgb(227, 181, 156)'
-              color='rgb(227, 181, 156)'
-              position='absolute'
-              left='43.5%' 
-              align-self='center'      
-              bottom = '50px'
-            />
+            children="Buscar destinos"
+            theme='transparent'
+            size='200'
+            border='2px solid rgb(227, 181, 156)'
+            color='rgb(227, 181, 156)'
+            position='absolute'
+            left='43.5%'
+            align-self='center'
+            bottom='50px'
+          />
         </BaseContainer>
       </S.SecSection >
-
+      <S.ThirdSection>
+        <BaseContainer>
+          <S.Content3>
+            {questions.map((cliente, index) => (
+              <>
+                <S.Title key={index}>{cliente.h1}</S.Title>
+                {cliente.faqs.map((item, index) => (
+                  <React.Fragment key={index}>
+                    <S.Question>{item.title}</S.Question>
+                    <S.Answer>{item.answer}</S.Answer>
+                  </React.Fragment>
+                ))}
+              </>
+            ))}
+          </S.Content3>
+        </BaseContainer>
+      </S.ThirdSection>
+      <TheFooter />
     </>
   )
 }
 
 export default Home;
-
