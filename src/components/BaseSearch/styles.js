@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 150px;
   border-radius: 10px;
-  z-index: 20;
+  /* z-index: 20; */
 
   span {
     display: flex;

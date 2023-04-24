@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import * as S from './styles';
 import BaseSearch from '../../components/BaseSearch';
 import BaseContainer from '../../components/BaseContainer';
@@ -48,22 +48,18 @@ const Home = () => {
         <BaseContainer>
 
           <Carroussel />
-          {/* <BaseButton
-            children="Buscar"
-            theme={colors.light_brown}
-            size='110'
-          /> */}
-          <S.Content2>
-            <BaseButton
+          <BaseButton
               children="Buscar destinos"
               theme='transparent'
               size='200'
               border='2px solid rgb(227, 181, 156)'
               color='rgb(227, 181, 156)'
+              position='absolute'
+              left='43.5%' 
+              align-self='center'      
+              bottom = '50px'
             />
-          </S.Content2>
         </BaseContainer>
-
       </S.SecSection >
 
     </>

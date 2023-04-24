@@ -8,6 +8,8 @@ export const Wrapper = styled.div`
   height: 85px;
   align-items: center;
   display: flex;
+  position: fixed;
+  z-index: 10;
 `
 
 export const Navbar = styled.nav`

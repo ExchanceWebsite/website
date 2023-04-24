@@ -37,4 +37,5 @@ export const SecSection = styled.section`
   background-repeat: no-repeat;
   height: 100vh;
   padding-top: 60px;
+  position: relative;
 `;
