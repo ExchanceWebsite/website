@@ -7,7 +7,7 @@ export const Wrapper = styled.footer`
   background-color: ${colors.darker_grey};
   z-index: 10;
   padding: 30px 0;
-  margin-top: 150px
+  /* margin-top: 150px */
 `
 
 export const Link = styled.a`
