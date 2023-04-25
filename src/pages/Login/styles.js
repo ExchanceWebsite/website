@@ -6,7 +6,7 @@ import colors from '../../styles/theme';
 import BaseContainer from '../../components/BaseContainer';
 
 export const FirstSection = styled.section`
-  /* background-image: url(${bg}); */
+  background-image: linear-gradient( black, 4%, transparent), url(${bg3});
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -58,9 +58,11 @@ export const ThirdSection = styled.section`
 `;
 
 export const Title = styled.h1`
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 500;
   max-width: 500px;
+  margin-bottom: 40px;
+  color: ${colors.darker_grey};
 `
 
 export const Question = styled.h2`
@@ -98,19 +100,27 @@ export const Content3 = styled.div`
 `;
 
 export const Container = styled(BaseContainer)`
-    padding-top: 130px;
-    margin-bottom: 60px;
-    padding-bottom: 60px;
-    /* display: flex; */
-    flex-direction: column;
+    padding-top: 100px;
     height: 100vh;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* max-width: 1700px */
-    /* gap: 50px; */
+    gap: 5px;
+    padding-left: 80px;
 
     img {
       margin: 0 auto
     }
 `
-
+export const ButtonWrapper = styled.div`
+  display: flex;
+`
+export const Select = styled.select`
+  background-color: transparent;
+    margin: 0;
+    border: 1px solid ${colors.light_grey};
+    border-radius: 3.5px;
+    height: 40px;
+    width: 270px;
+    padding: 0 15px;
+`

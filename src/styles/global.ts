@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
   }
 
   body {

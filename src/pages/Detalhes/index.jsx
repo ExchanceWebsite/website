@@ -8,28 +8,15 @@ import 'swiper/css/pagination';
 import { useLocation } from 'react-router-dom';
 import TheFooter from '../../components/TheFooter';
 
-const Busca = () => {
-  let currentBusca = false
-  const location = useLocation()
-
-  if (location.pathname === '/busca') {
-    currentBusca = true
-  }
-
-  const [busca, setBusca] = useState(false);
-
-  const filtrar = () => {
-    if (currentBusca) {
-      setBusca(true)
-    }
-  }
+const Detalhes = () => {
   return (
     <>
       <S.FirstSection>
         <TheHeader></TheHeader>
         <S.Container>
-          <BaseSearch filtrar={filtrar} />
-          <ContentBusca busca={busca} />
+          <S.Title>
+            Família Schwarz
+          </S.Title>
         </S.Container>
       </S.FirstSection>
       <TheFooter></TheFooter>

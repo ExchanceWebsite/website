@@ -3,6 +3,8 @@ import colors from './styles/theme';
 import GlobalStyles from './styles/global';
 import Home from './pages/Home/index';
 import Busca from './pages/Busca/index';
+import Login from './pages/Login';
+import Cadastro from './pages/Cadastro';
 
 // import Routes from 'pages/routes';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
@@ -24,6 +26,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='busca' element={<Busca/>}></Route>
+          <Route path='login' element={<Login/>}></Route>
+          <Route path='cadastro' element={<Cadastro/>}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

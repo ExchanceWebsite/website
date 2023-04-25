@@ -15,7 +15,7 @@ const home = true
 const Logo = () => {
   var currentHome = false
   const location = useLocation()
-  
+
   if (location.pathname === '/') {
     currentHome = true
   }
@@ -51,7 +51,7 @@ const Logo = () => {
 const Button = ({ children }) => {
   var currentHome = false
   const location = useLocation()
-  
+
   if (location.pathname === '/') {
     currentHome = true
   }
@@ -72,14 +72,14 @@ const Button = ({ children }) => {
       ...blueHeader ? (
         <BaseButton
           theme={colors.darker_brown}
-          size='230'
+          size='200'
           color='blue !important'
         >{children}
         </BaseButton>
       ) : (
         <BaseButton
           theme={colors.primary_blue}
-          size='230'
+          size='200'
         >{children}
         </BaseButton>
       )
@@ -90,7 +90,7 @@ const Button = ({ children }) => {
 const Wrapper = ({ children }) => {
   var currentHome = false
   const location = useLocation()
-  
+
   if (location.pathname === '/') {
     currentHome = true
   }
@@ -147,9 +147,11 @@ const TheHeader = () => {
             <S.Link>Login</S.Link>
           </Link>
         </S.Navbar>
-        <Button
-          children={<S.Link>Cadastre-se</S.Link>}
-        />
+        <Link to='/cadastro'>
+          <Button
+            children={<S.Link>Cadastre-se</S.Link>}
+          />
+        </Link>
       </S.Container>
     </Wrapper >
   )

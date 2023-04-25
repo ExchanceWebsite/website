@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 
-function BaseInput({ onFocus, onBlur, type, placeholder, size, id, ...props }) {
+function BaseInput({ onFocus, onBlur, type, placeholder, size, id, max, ...props }) {
   props
   return (
     <S.Wrapper>
@@ -11,7 +11,8 @@ function BaseInput({ onFocus, onBlur, type, placeholder, size, id, ...props }) {
         onBlur={onBlur}
         type={type}
         style={{
-          width: size + 'px'
+          maxWidth: max,
+          width: size
         }}
       />
     </S.Wrapper>
