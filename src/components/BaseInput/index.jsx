@@ -6,6 +6,7 @@ function BaseInput({ onFocus, onBlur, type, placeholder, size, id, max, ...props
   return (
     <S.Wrapper>
       <input
+        defaultValue={props.value}
         placeholder={placeholder}
         onFocus={onFocus}
         onBlur={onBlur}
@@ -14,6 +15,7 @@ function BaseInput({ onFocus, onBlur, type, placeholder, size, id, max, ...props
           maxWidth: max,
           width: size
         }}
+        onChange={(e) => props.insert(e.target.value)}
       />
     </S.Wrapper>
   )
