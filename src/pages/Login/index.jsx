@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import httpFetch from '../../hooks/httpFetch';
-import * as S from '../Cadastro/styles';
+import * as S from './styles';
 import { BaseSearch, ContentBusca } from '../../components/BaseSearch';
 import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
@@ -57,9 +56,7 @@ const Login = () => {
             theme={colors.primary_blue}
             size='279'
             children='Entrar'
-            color='blue !important'
-            onClick={login}
-          >
+            color='blue !important'>
           </BaseButton>
 
         </S.Container>
