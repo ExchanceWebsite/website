@@ -10,15 +10,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-const home = true
+var currentHome = Boolean
 
 const Logo = () => {
-  var currentHome = false
   const location = useLocation()
-
-  if (location.pathname === '/') {
-    currentHome = true
-  }
+  location.pathname === '/'  ? currentHome = true : currentHome = false
 
   const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
@@ -49,12 +45,8 @@ const Logo = () => {
 }
 
 const Button = ({ children }) => {
-  var currentHome = false
   const location = useLocation()
-
-  if (location.pathname === '/') {
-    currentHome = true
-  }
+  location.pathname === '/'  ? currentHome = true : currentHome = false
 
   const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
@@ -87,13 +79,10 @@ const Button = ({ children }) => {
   )
 }
 
-const Wrapper = ({ children }) => {
-  var currentHome = false
-  const location = useLocation()
 
-  if (location.pathname === '/') {
-    currentHome = true
-  }
+const Wrapper = ({ children }) => {
+  const location = useLocation()
+  location.pathname === '/'  ? currentHome = true : currentHome = false
 
   const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {

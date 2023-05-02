@@ -15,51 +15,70 @@ import colors from '../../styles/theme';
 const Cadastro = () => {
   return (
     <>
+      <TheHeader></TheHeader>
       <S.FirstSection>
-        <TheHeader></TheHeader>
         <S.Container>
           <S.Title>Junte-se a nós!</S.Title>
           <S.ButtonWrapper>
-          <BaseInput
-            placeholder='Nome'
-            type='text'
-          ></BaseInput>
-          <BaseInput
-            placeholder='Nascimento'
-            type='text'
-          ></BaseInput>
-          <BaseInput
-            placeholder='E-mail'
-            type='text'
-          ></BaseInput>
-          <BaseInput
-            placeholder='CPF'
-            type='text'
-          ></BaseInput>
-          <BaseInput
-            placeholder='Celular'
-            type='text'
-          ></BaseInput>
-          <BaseInput
-            placeholder='Senha'
-            type='text'
-          ></BaseInput>
-          <BaseInput
-            placeholder='Confirme'
-            type='text'
-          ></BaseInput>
+            <span>
+              <BaseInput
+                placeholder='Nome'
+                type='text'
+                size='137px'
+              ></BaseInput>
+              <BaseInput
+                placeholder='CPF'
+                type='text'
+                size='137px'
+              ></BaseInput>
 
-          <S.Select>
-            <option value="">Cadastrar como</option>
-            <option value="1">Host</option>
-            <option value="2">Estudante</option>
-          </S.Select>
-          <BaseButton
-            theme={colors.primary_blue}
-            size='270'
-            children='Enviar'
-            color='blue !important'>
-          </BaseButton>
+            </span>
+            <BaseInput
+              placeholder='Nascimento'
+              type='text'
+              onFocus={(focus) => focus.target.type = "date"}
+              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
+            ></BaseInput>
+            <BaseInput
+              placeholder='Celular'
+              type='text'
+            ></BaseInput>
+            <S.Subtitle>Crie seu login</S.Subtitle>
+            <BaseInput
+              placeholder='E-mail'
+              type='text'
+            ></BaseInput>
+            <span>
+              <BaseInput
+                placeholder='Senha'
+                type='password'
+                size='137px'
+              ></BaseInput>
+              <BaseInput
+                placeholder='Confirme'
+                type='password'
+                size='137px'
+              ></BaseInput>
+            </span>
+
+            <S.Select
+              onFocus={(focus, placeholder) => {
+                focus.target.style.color = "grey"
+                focus.target.placedolder.disabled = "true"
+              }}
+              onChange={(change) => change.target.value ? change.target.style.color = "white" : null}
+              onBlur={(blur) => blur.target.value ? blur.target.style.color = "white" : null}
+            >
+              <option value="">Cadastrar como</option>
+              <option value="1">Host</option>
+              <option value="2">Estudante</option>
+            </S.Select>
+            <BaseButton
+              theme={colors.primary_blue}
+              size='279'
+              children='Enviar'
+              color='blue !important'>
+            </BaseButton>
           </S.ButtonWrapper>
 
         </S.Container>

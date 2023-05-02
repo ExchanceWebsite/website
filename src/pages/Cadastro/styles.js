@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import bg from '../../assets/home-bg.png'
 import bg2 from '../../assets/home2-bg.png'
 import bg3 from '../../assets/home3-bg.png'
@@ -6,22 +6,24 @@ import colors from '../../styles/theme';
 import BaseContainer from '../../components/BaseContainer';
 
 export const FirstSection = styled.section`
-    background-image: linear-gradient( black, 4%, transparent), url(${bg3});
+  background-image: linear-gradient(to right, rgba(17, 17, 17, 0.898), rgba(17, 17, 17, 0.783), rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.3),rgba(0, 0, 0, 0)), url(${bg3});
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  /* margin-bottom: 85px; */
-`;
 
-export const Content1 = styled.div`
-  padding-top: 394px;
-  padding-bottom: 80px;
-`;
+  span {
+    display: flex;
+  }
 
-export const Content2 = styled.div`
-  display: grid;
-  width: 100%;
-  justify-content: center;
+  input {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.101);
+    border: none
+  }
+
+  button {
+    margin-top: 25px;
+  }
 `;
 
 export const CarouselWrapper = styled.div`
@@ -36,33 +38,13 @@ export const CardModule = styled.div`
   margin-top: 40px;
 `;
 
-export const SecSection = styled.section`
-  background-image: url(${bg2});
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  padding-top: 60px;
-  position: relative;
-`;
-
-export const ThirdSection = styled.section`
-  background-image: url(${bg3});
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* height: 100vh; */
-  padding-top: 60px;
-  position: relative;
-  display: flex;
-  background-position: 60%;
-  padding-bottom: 90px;
-`;
-
 export const Title = styled.h1`
-  font-size: 40px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 600;
   max-width: 500px;
-  margin-bottom: 40px;
-  color: ${colors.darker_grey};
+  margin-bottom: 17px;
+  color: white;
+  margin-right: 45px;
 `
 
 export const Question = styled.h2`
@@ -70,12 +52,7 @@ export const Question = styled.h2`
   font-size: 27px;
   max-width: 600px;
   color: ${colors.darker_grey};
-  /* text-align: right; */
   align-self: flex-end;
-
-  /* &:nth-child(even) {
-    align-self: flex-start;
-  } */
 `
 
 export const Answer = styled.h3`
@@ -83,20 +60,14 @@ export const Answer = styled.h3`
   max-width: 600px;
   color: ${colors.darker_grey};
   justify-content: flex-end;
-  /* text-align: right; */
   align-self: flex-end;
   margin-bottom: 30px;
-
-  /* &:nth-child(even) {
-    align-self: flex-start;
-  } */
 `
 export const Content3 = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: 20px;
-  /* justify-content: center; */
 `;
 
 export const Container = styled(BaseContainer)`
@@ -106,7 +77,10 @@ export const Container = styled(BaseContainer)`
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    padding-left: 80px;
+    transform: translate(-50%, -50%);
+    top: 47%;
+    left: 50%;
+    position: absolute;
 
     img {
       margin: 0 auto
@@ -116,8 +90,6 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
-  /* background-color: burlywood; */
-  padding: 40px;
   width: fit-content;
   border-radius: 5px;
 `
@@ -127,6 +99,15 @@ export const Select = styled.select`
     border: 1px solid ${colors.light_grey};
     border-radius: 3.5px;
     height: 40px;
-    width: 270px;
+    width: 279px;
     padding: 0 15px;
+    color: grey;
+    margin-top: 10px;
+`
+export const Subtitle = styled.h2`
+  font-size: 16px;
+  margin: 20px 0 6px;
+  color: white;
+  font-weight: 500;
+  /* text-align: ; */
 `

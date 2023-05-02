@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import * as S from './styles';
+import httpFetch from '../../hooks/httpFetch';
+import * as S from '../Cadastro/styles';
 import { BaseSearch, ContentBusca } from '../../components/BaseSearch';
 import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
@@ -13,26 +14,52 @@ import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
 
 const Login = () => {
+
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+
+  function login() {
+    const loginUser = { email, senha };
+
+    httpFetch.post('/login', loginUser)
+      .then((res) => {
+        console.log(res.data);
+      }).catch((err) => {
+        console.clear();
+        console.log(err.response.status);
+        console.log(email);
+        console.log(senha);
+        console.log(err);
+      });
+  }
+
+
   return (
     <>
+      <TheHeader></TheHeader>
       <S.FirstSection>
-        <TheHeader></TheHeader>
         <S.Container>
           <S.Title>Bem-vindo(a)!</S.Title>
           <BaseInput
+            value={email}
             placeholder='E-mail'
             type='text'
+            insert={setEmail}
           ></BaseInput>
           <BaseInput
+            value={senha}
             placeholder='Senha'
-            type='password'
+            type='senha'
+            insert={setSenha}
           ></BaseInput>
 
           <BaseButton
             theme={colors.primary_blue}
-            size='270'
+            size='279'
             children='Entrar'
-            color='blue !important'>
+            color='blue !important'
+            onClick={login}
+          >
           </BaseButton>
 
         </S.Container>

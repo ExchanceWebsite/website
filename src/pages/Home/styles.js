@@ -5,7 +5,7 @@ import bg3 from '../../assets/home3-bg.png'
 import colors from '../../styles/theme';
 
 export const FirstSection = styled.section`
-  background-image: url(${bg});
+  background-image: linear-gradient(to bottom left, rgba(17, 17, 17, 0.298), rgba(17, 17, 17, 0.283), rgba(17, 17, 17, 0.02), rgba(17, 17, 17, 0.0),rgba(0, 0, 0, 0)), url(${bg});
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
