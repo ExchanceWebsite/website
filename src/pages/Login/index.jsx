@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as S from './styles';
+import * as S from '../Cadastro/styles';
 import { BaseSearch, ContentBusca } from '../../components/BaseSearch';
 import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
