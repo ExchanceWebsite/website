@@ -17,8 +17,8 @@ export const FirstSection = styled.section`
 
   input {
     color: white;
-    background-color: rgba(255, 255, 255, 0.101);
-    border: none
+    background-color: rgba(255, 255, 255, 0.101) !important;
+    border: none !important
   }
 
   button {
@@ -39,7 +39,7 @@ export const CardModule = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 600;
   max-width: 500px;
   margin-bottom: 17px;
@@ -105,7 +105,7 @@ export const Select = styled.select`
     margin-top: 10px;
 `
 export const Subtitle = styled.h2`
-  font-size: 16px;
+  font-size: 18px;
   margin: 20px 0 6px;
   color: white;
   font-weight: 500;

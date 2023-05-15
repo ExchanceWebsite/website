@@ -56,7 +56,9 @@ const Login = () => {
             theme={colors.primary_blue}
             size='279'
             children='Entrar'
-            color='blue !important'>
+            color='blue !important'
+            onClick={login}>
+              
           </BaseButton>
 
         </S.Container>
