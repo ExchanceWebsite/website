@@ -56,9 +56,13 @@ const Login = () => {
             theme={colors.primary_blue}
             size='279'
             children='Entrar'
+<<<<<<< HEAD
             color='blue !important'
             onClick={login}>
               
+=======
+            color='blue !important'>
+>>>>>>> c828ea4a0d9d1c2f0fc1206d16f1c707b4457b9a
           </BaseButton>
 
         </S.Container>
