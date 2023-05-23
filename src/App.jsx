@@ -5,6 +5,7 @@ import Home from './pages/Home/index';
 import Busca from './pages/Busca/index';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
+import Reserva from './pages/reserva';
 
 // import Routes from 'pages/routes';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
@@ -28,6 +29,7 @@ function App() {
           <Route path='busca' element={<Busca/>}></Route>
           <Route path='login' element={<Login/>}></Route>
           <Route path='cadastro' element={<Cadastro/>}></Route>
+          <Route path='reserva' element={<Reserva/>}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

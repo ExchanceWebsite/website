@@ -12,6 +12,7 @@ import BaseSelect from '../../components/BaseCheck';
 import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
 import httpFetch from '../../hooks/httpFetch';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -53,14 +54,15 @@ const Login = () => {
             insert={setSenha}
           ></BaseInput>
 
-          <BaseButton
-            theme={colors.primary_blue}
-            size='279'
-            children='Entrar'
-            color='blue !important'
-            onClick={login}>
-          </BaseButton>
-          
+          <Link to='/reserva'>
+            <BaseButton
+              theme={colors.primary_blue}
+              size='279'
+              children='Entrar'
+              color='blue !important'
+              onClick={login}>
+            </BaseButton>
+          </Link>
         </S.Container>
       </S.FirstSection>
       <TheFooter></TheFooter>
