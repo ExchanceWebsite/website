@@ -58,9 +58,8 @@ const Login = () => {
             children='Entrar'
             color='blue !important'
             onClick={login}>
-              
           </BaseButton>
-
+          
         </S.Container>
       </S.FirstSection>
       <TheFooter></TheFooter>
