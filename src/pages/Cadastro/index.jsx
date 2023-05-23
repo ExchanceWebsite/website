@@ -11,6 +11,8 @@ import BaseInput from '../../components/BaseInput';
 import BaseSelect from '../../components/BaseCheck';
 import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
+import httpFetch from '../../hooks/httpFetch';
+
 const Cadastro = () => {
 
   const [nome, setNome] = useState();
