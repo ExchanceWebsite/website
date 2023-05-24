@@ -25,9 +25,9 @@ function App() {
         </div>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='busca' element={<Busca/>}></Route>
-          <Route path='login' element={<Login/>}></Route>
-          <Route path='cadastro' element={<Cadastro/>}></Route>
+          <Route path='/busca' element={<Busca/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/cadastro' element={<Cadastro/>}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

@@ -5,16 +5,17 @@ import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import TheFooter from '../../components/TheFooter';
 import BaseInput from '../../components/BaseInput';
 import BaseSelect from '../../components/BaseCheck';
 import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
 import httpFetch from '../../hooks/httpFetch';
+import { Navigate } from "react-router-dom";
 
 const Cadastro = () => {
-
+  const navigate = useNavigate()
   const [nome, setNome] = useState();
   const [cpf, setCpf] = useState();
   const [nascimento, setNascimento] = useState();
@@ -22,24 +23,20 @@ const Cadastro = () => {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [confirmaSenha, setConfirmaSenha] = useState();
+  const [white, setWhite] = useState();
 
 
   function cadastro() {
-    const cadastroUser = { nome, cpf, nascimento, celular, email, senha, confirmaSenha };
+    const cadastroUser = {nome, email, senha, celular, cpf};
 
-    httpFetch.post('/cadastro', cadastroUser)
+    httpFetch.post('', cadastroUser)
       .then((res) => {
         console.log(res.data);
+        navigate("/login")
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);
-        console.log(nome);
-        console.log(cpf);
-        console.log(nascimento);
-        console.log(celular);
-        console.log(email);
-        console.log(email);
-        console.log(confirmaSenha);
+        console.log(cadastroUser);
       });
   }
 
