@@ -11,6 +11,7 @@ import BaseInput from '../../components/BaseInput';
 import BaseSelect from '../../components/BaseCheck';
 import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
+import httpFetch from '../../hooks/httpFetch';
 
 const Login = () => {
 
@@ -56,9 +57,10 @@ const Login = () => {
             theme={colors.primary_blue}
             size='279'
             children='Entrar'
-            color='blue !important'>
+            color='blue !important'
+            onClick={login}>
           </BaseButton>
-
+          
         </S.Container>
       </S.FirstSection>
       <TheFooter></TheFooter>

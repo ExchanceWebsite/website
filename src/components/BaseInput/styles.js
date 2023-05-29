@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import colors from '../../styles/theme';
+import { IMaskInput } from "react-imask";
+
 
 
 export const Wrapper = styled.span`
