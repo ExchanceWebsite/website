@@ -8,8 +8,11 @@ import Cadastro from './pages/Cadastro';
 
 // import Routes from 'pages/routes';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import ChatPage from './pages/ChatPage';
 
 function App() {
+  // const [chatVisibility, setChatVisibility] = useState(false)
 
   return (
     <>
@@ -18,6 +21,9 @@ function App() {
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;900&display=swap" rel="stylesheet"></link>
       <Router>
         <div className="app">
+          {/* {
+            chatVisibility ? <Chat /> : <Join />
+          } */}
           <Link to='/'></Link>
           <Link to='/busca'></Link>
           {/* <Busca></Busca> */}
@@ -28,6 +34,7 @@ function App() {
           <Route path='busca' element={<Busca/>}></Route>
           <Route path='login' element={<Login/>}></Route>
           <Route path='cadastro' element={<Cadastro/>}></Route>
+          <Route path='chatPage' element={<ChatPage/>}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
