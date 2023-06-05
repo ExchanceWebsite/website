@@ -47,8 +47,10 @@ export default function Chat({ socket }) {
                     <S.BoxMensagem>
                         <S.Mensagem>
                             {
-                    messageList.map((message) => (
-                        <p>{message.text}</p>
+                    messageList.map((message, index) => (
+                        messageList.map((message, index) => (
+                            <p key={index}>{message.author} : {message.text}</p>
+                        ))
                     ))
                             } 
                         </S.Mensagem>
@@ -67,7 +69,7 @@ export default function Chat({ socket }) {
                     <S.BoxInput>
                         <S.Wrapper>
                             <input type="text" ref={messageRef} placeholder="Mensagem..." />
-                        <button onClick={() => handleSubmit()}>Enviar</button>
+                            <button onClick={() => handleSubmit()}>Enviar</button>
                         </S.Wrapper>
                     </S.BoxInput>
                 </S.BoxChat>

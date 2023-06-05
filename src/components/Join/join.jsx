@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, { useRef, useEffect } from "react";
 import io from 'socket.io-client'
 
 export default function Join({setChatVisibility, setScocket}) {
@@ -6,19 +6,24 @@ export default function Join({setChatVisibility, setScocket}) {
     const usernameRef = useRef()
 
     const handleSubmit = async () => {
-        const username = usernameRef.current.value
-        if(!username.trim()) return 
+        // const username = 'Gabriel'
+        // if(username == 'Gabriel') return 
         const socket = await io.connect('http://localhost:3001')
-        socket.emit('set_username', username)
+        // socket.emit('set_username', username)
         setScocket(socket)
         setChatVisibility(true)
     }
 
+    React.useEffect(() => {
+        handleSubmit();
+      },[]);
+
     return (
         <div>
-            <h1>Join</h1>
+            <h1>HHHHHHH</h1>
+            <p>jj</p>
             <input type="text" ref={usernameRef} placeholder="Nome de usuário" />
-            <button onClick={() =>handleSubmit()}>Entrar</button>
+            <button >Entrar</button>
         </div>
     )
 }

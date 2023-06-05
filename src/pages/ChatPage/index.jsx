@@ -17,7 +17,7 @@ const ChatPage = () => {
     <>
         {/* <S.Container> */}
           {
-            chatVisibility ? <Chat socket={socket} /> : <Join setScocket={setScocket} setChatVisibility={setChatVisibility} />
+            chatVisibility ? <Chat socket={socket} setChatVisibility={setChatVisibility} /> : <Join setScocket={setScocket} setChatVisibility={setChatVisibility} />
           }
         {/* </S.Container> */}
 

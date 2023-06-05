@@ -26,10 +26,15 @@ const Cadastro = () => {
 
   function cadastro() {
     const cadastroUser = { nome, cpf, nascimento, celular, email, senha, confirmaSenha };
+    const teste = sessionStorage.getItem("nome")
+
+
 
     httpFetch.post('/cadastro', cadastroUser)
       .then((res) => {
         console.log(res.data);
+  console.log(`Nome usuário ${teste}`)
+
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);
@@ -40,6 +45,7 @@ const Cadastro = () => {
         console.log(email);
         console.log(email);
         console.log(confirmaSenha);
+  
       });
   }
 
@@ -48,6 +54,7 @@ const Cadastro = () => {
   const Click = (event) => {
     if (event.target.value) {
       setValor(!valor)
+      
     }
     valor ? (
       event.target.style.color = "white"
@@ -84,10 +91,10 @@ const Cadastro = () => {
     ) :
       event.target.style.color = "grey"
   }
-
   return (
 
     <>
+    
       <TheHeader></TheHeader>
       <S.FirstSection>
         <S.Container>
