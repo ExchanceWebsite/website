@@ -19,25 +19,49 @@ const Cadastro = () => {
   const [nome, setNome] = useState();
   const [cpf, setCpf] = useState();
   const [nascimento, setNascimento] = useState();
+  // const [idade, setIdade] = useState();
   const [celular, setCelular] = useState();
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [confirmaSenha, setConfirmaSenha] = useState();
   const [white, setWhite] = useState();
+  const [idade, setIdade] = useState();
 
+
+  useEffect(() => {
+
+    const today = new Date();
+    const birthDate = new Date(nascimento);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--
+    }
+
+    console.log(nascimento)
+    console.log(age)
+
+    setIdade(age)
+
+
+  }, [nascimento])
 
   function cadastro() {
-    const cadastroUser = { nome, email, senha, celular, cpf };
+    const cadastroUser = { nome, idade, email, senha, celular, cpf };
 
-    httpFetch.post('/cadastro', cadastroUser)
+    httpFetch.post('', cadastroUser)
       .then((res) => {
         console.log(res.data);
         navigate("/login")
       }).catch((err) => {
         console.clear();
-        console.log(err.response.status);
+        console.log(err.response);
         console.log(cadastroUser);
       });
+
+    window.sessionStorage.clear();
+    window.sessionStorage.setItem('USERNAME', nome);
   }
 
   const [valor, setValor] = useState(false)
@@ -154,11 +178,7 @@ const Cadastro = () => {
               size='279'
               children='Criar conta'
               color='blue !important'
-              onClick={() => {
-                cadastro;
-                window.sessionStorage.clear();
-                window.sessionStorage.setItem('USERNAME', nome);
-              }} >
+              onClick={cadastro}>
             </BaseButton>
           </S.ButtonWrapper>
 
