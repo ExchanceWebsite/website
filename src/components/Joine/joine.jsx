@@ -14,22 +14,11 @@ export default function Joine({ setChatVisibility, setScocket }) {
     setChatVisibility(true)
   }
 
-  // const [renderizado, setRenderizado] = React.useState(true);
-
-  // React.useEffect(() => {
-  //   if (renderizado) {
-  //     setRenderizado(false)
-  //   }
-  //   console.log(renderizado)
-  //   console.log("oi")
-  // }, []);
+  React.useEffect(() => {
+    handleSubmit();
+  }, []);
 
   return (
-    <div>
-      <h1 onClick={console.log("cliquei")}>Ola</h1>
-      <p>jj</p>
-      <input type="text" ref={usernameRef} placeholder="Nome de usuário" />
-      <button>Entrar</button>
-    </div>
+    <></>
   )
 }

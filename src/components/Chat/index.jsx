@@ -8,56 +8,54 @@ import Familia from '../../assets/familia.jpeg'
 
 export default function Chat({ socket }) {
 
-    const messageRef = useRef()
-    const [messageList, setMessageList] = useState([])
+  const messageRef = useRef()
+  const [messageList, setMessageList] = useState([])
 
-    useEffect(() => {
-        socket.on('receive_message', data => {
-            setMessageList((current) => [...current, data])
-        })
+  useEffect(() => {
+    socket.on('receive_message', data => {
+      setMessageList((current) => [...current, data])
+    })
 
-        return () => socket.off('receive_message')
-    }, [socket])
+    return () => socket.off('receive_message')
+  }, [socket])
 
-    const handleSubmit = () => {
-        const message = messageRef.current.value
-        if (!message.trim()) return
+  const handleSubmit = () => {
+    const message = messageRef.current.value
+    if (!message.trim()) return
 
-        socket.emit('message', message)
-        clearInput()
-    }
+    socket.emit('message', message)
+    clearInput()
+  }
 
-    const clearInput = () => {
-        messageRef.current.value = ''
-    }
+  const clearInput = () => {
+    messageRef.current.value = ''
+  }
 
-    return (
-        <S.Container>
-            <S.ContainerChat>
-                <S.NavBarFamilia>
-                    <S.Voltar>
-                        <S.ImgVoltar src={Voltar}></S.ImgVoltar>
-                    </S.Voltar>
-                    <S.NomeFamilia>
-                        <S.ImgPerfilFamilia src={Perfil}></S.ImgPerfilFamilia>
-                        <S.NomeFamiliaText>Família Pavanelli</S.NomeFamiliaText> 
-                    </S.NomeFamilia>
-                </S.NavBarFamilia>
-                <S.BoxChat>
-                    <S.BoxMensagem>
-                        <S.Mensagem>
-                            {
-                    messageList.map((message, index) => (
-                        messageList.map((message, index) => (
-                            <p key={index}>{message.author} : {message.text}</p>
-                        ))
-                    ))
-                            } 
-                        </S.Mensagem>
-                 
-                       
+  return (
+    <S.Container>
+      <S.ContainerChat>
+        <S.NavBarFamilia>
+          <S.Voltar>
+            <S.ImgVoltar src={Voltar}></S.ImgVoltar>
+          </S.Voltar>
+          <S.NomeFamilia>
+            <S.ImgPerfilFamilia src={Perfil}></S.ImgPerfilFamilia>
+            <S.NomeFamiliaText>Família Pavanelli</S.NomeFamiliaText>
+          </S.NomeFamilia>
+        </S.NavBarFamilia>
+        <S.BoxChat>
+          <S.BoxMensagem>
+            <S.Mensagem>
+              {
+                messageList.map((message, index) => (
+                  <p key={index}>{message.author} : {message.text}</p>
+                ))
+              }
+            </S.Mensagem>
 
-                {/* <h1>Chat</h1>
+
+
+            {/* <h1>Chat</h1>
                 {
                     messageList.map((message, index) => (
                         <p key={index}>{message.author} : {message.text}</p>
@@ -65,34 +63,34 @@ export default function Chat({ socket }) {
                 }
                 <input type="text" ref={messageRef} placeholder="mensagem" />
                 <button onClick={() => handleSubmit()}>Enviar</button> */}
-                    </S.BoxMensagem>
-                    <S.BoxInput>
-                        <S.Wrapper>
-                            <input type="text" ref={messageRef} placeholder="Mensagem..." />
-                            <button onClick={() => handleSubmit()}>Enviar</button>
-                        </S.Wrapper>
-                    </S.BoxInput>
-                </S.BoxChat>
-            </S.ContainerChat>
-            <S.ConatinerDetalhes>
-                <S.NavBarDetalhes>
-                    <S.NavBarDetalhesTexto>
-                        Detalhes
-                    </S.NavBarDetalhesTexto>
-                </S.NavBarDetalhes>
-                <S.Boxdetalhes>
-                    <S.BoxdetalhesImg src={Familia}></S.BoxdetalhesImg>
-                </S.Boxdetalhes>
-                <S.Linha></S.Linha>
-                <S.BoxDescricao>
-                    <S.DescricaoTitulo>
-                        <S.DescricaoTituloTexto>Descrição</S.DescricaoTituloTexto>
-                    </S.DescricaoTitulo>
-                    <S.BoxDescricaoTexto>
-                    Como host family, oferecemos uma acomodação confortável, com um quarto privativo para o estudante, mobiliado com cama, mesa de estudo, armário e acesso à internet. Além disso, proporcionamos refeições caseiras, adaptadas às preferências alimentares do estudante, e compartilhamos momentos em família durante as refeições.
-                    </S.BoxDescricaoTexto>
-                </S.BoxDescricao>
-            </S.ConatinerDetalhes>
-        </S.Container>
-    )
+          </S.BoxMensagem>
+          <S.BoxInput>
+            <S.Wrapper>
+              <input type="text" ref={messageRef} placeholder="Mensagem..." />
+              <button onClick={() => handleSubmit()}>Enviar</button>
+            </S.Wrapper>
+          </S.BoxInput>
+        </S.BoxChat>
+      </S.ContainerChat>
+      <S.ConatinerDetalhes>
+        <S.NavBarDetalhes>
+          <S.NavBarDetalhesTexto>
+            Detalhes
+          </S.NavBarDetalhesTexto>
+        </S.NavBarDetalhes>
+        <S.Boxdetalhes>
+          <S.BoxdetalhesImg src={Familia}></S.BoxdetalhesImg>
+        </S.Boxdetalhes>
+        <S.Linha></S.Linha>
+        <S.BoxDescricao>
+          <S.DescricaoTitulo>
+            <S.DescricaoTituloTexto>Descrição</S.DescricaoTituloTexto>
+          </S.DescricaoTitulo>
+          <S.BoxDescricaoTexto>
+            Como host family, oferecemos uma acomodação confortável, com um quarto privativo para o estudante, mobiliado com cama, mesa de estudo, armário e acesso à internet. Além disso, proporcionamos refeições caseiras, adaptadas às preferências alimentares do estudante, e compartilhamos momentos em família durante as refeições.
+          </S.BoxDescricaoTexto>
+        </S.BoxDescricao>
+      </S.ConatinerDetalhes>
+    </S.Container>
+  )
 }
