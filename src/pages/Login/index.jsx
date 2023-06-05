@@ -18,25 +18,40 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
+  const [idUser, setIdUser] = useState();
 
-  const [estudante, setEstudante] = useState();
 
-  setEstudante(true)
+  // const [estudante, setEstudante] = useState();
+
+  // setEstudante(true)
 
   function login() {
-    const loginUser = { email, senha };
 
+    const loginUser = { email, senha };
     httpFetch.post('/login', loginUser)
       .then((res) => {
         console.log(res.data);
-        estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
+        // estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
+        navigate("/conta")
+          window.sessionStorage.clear();
+          window.sessionStorage.setItem('id_user', res.data.idEstudante);
+          window.sessionStorage.setItem('nome_user', res.data.nome);
       }).catch((err) => {
-        console.clear();
+        // console.clear();
         console.log(err.response.status);
         console.log(email);
         console.log(senha);
         console.log(err);
       });
+
+
+    // useEffect(() => {
+    //   window.sessionStorage.setItem('id_user', idUser);
+    //   console.log(idUser)
+    // }, [idUser]);
+
+    // window.sessionStorage.clear();
+
   }
 
 
@@ -55,7 +70,7 @@ const Login = () => {
           <BaseInput
             value={senha}
             placeholder='Senha'
-            type='senha'
+            type='password'
             insert={setSenha}
           ></BaseInput>
 
@@ -66,7 +81,7 @@ const Login = () => {
             color='blue !important'
             onClick={login}>
           </BaseButton>
-          
+
         </S.Container>
       </S.FirstSection>
       <TheFooter></TheFooter>

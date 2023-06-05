@@ -6,6 +6,8 @@ import BaseImage from '../../components/BaseImage';
 
 const Reservas = () => {
 
+  const nomeUser = window.sessionStorage.getItem('nome_user');
+
   return (
     <>
       <div id="header">
@@ -15,7 +17,7 @@ const Reservas = () => {
             size='180'
           />
         </div>
-        <h2 id="frase">Olá, Convidado!</h2>
+        <h2 id="frase">Olá, {nomeUser}</h2>
       </div>
       <div id="corpo">
         <div id="header-vertical">

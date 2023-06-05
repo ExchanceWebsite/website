@@ -11,22 +11,22 @@ export default function Chat({ socket }) {
 
   const [localidade, setLocalidade] = useState();
 
-  // useEffect(() => {
-  //   httpFetch.get(`/localidades/${localDigitado}`, localidade)
-  //     .then((response) => setHost(response.data))
-  //     .catch((err) => {
-  //       console.error("ops! ocorreu um erro" + err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    httpFetch.get(`/localidades/${localDigitado}`, localidade)
+      .then((response) => setHost(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
 
   const [userName, setUserName] = useState('Alex');
   const messageRef = useRef()
   const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
-      console.log(window.sessionStorage.getItem('USERNAME'))
-      setUserName(window.sessionStorage.getItem('USERNAME'))
-      console.log(userName)
+    console.log(window.sessionStorage.getItem('nome_user'))
+    setUserName(window.sessionStorage.getItem('nome_user'))
+    console.log(userName)
   }, [])
 
   useEffect(() => {
