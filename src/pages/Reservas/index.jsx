@@ -9,10 +9,12 @@ import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
 import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
 import Familia from '../../assets/familia.jpeg'
 import Info from '../../assets/icons8-informações-42.png'
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Reservas = () => {
-
+  const navigate = useNavigate();
   const nomeUser = window.sessionStorage.getItem('nome_user');
 
   return (
@@ -22,6 +24,7 @@ const Reservas = () => {
           <BaseImage
             src={brownLogo}
             size='180'
+            onClick={() => navigate('/')}
           />
         </div>
         <h2 id="frase">Olá, {nomeUser}</h2>
@@ -36,22 +39,22 @@ const Reservas = () => {
             <h2>Reservas</h2>
           </div>
           <div id="menu">
-          <div className="icon-box">
-            <img src={Chat} alt="" />
-          </div>
+            <div className="icon-box">
+              <img src={Chat} alt="" />
+            </div>
             <h2>Chat</h2>
           </div>
           <div id="menu">
-          <div className="icon-box">
-            <img src={Notificacao} alt="" />
-          </div>
+            <div className="icon-box">
+              <img src={Notificacao} alt="" />
+            </div>
             <h2>Notificações</h2>
           </div>
           <div id="menu">
-          <div className="icon-box">
-            <img src={Perfil} alt="" />
-          </div>
-            <h2>Conta</h2>
+            <div className="icon-box">
+              <img src={Perfil} alt="" />
+            </div>
+            <h2 onClick={() => navigate('/conta')}>Conta</h2>
           </div>
         </div>
 

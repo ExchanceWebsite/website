@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 import '../../CSS/pos-login.css';
 import brownLogo from '../../assets/brown-logo.png'
 import BaseImage from '../../components/BaseImage';
-
 import Aviao from '../../assets/modo-aviao.png'
 import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
 import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
 import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
+import { useNavigate } from 'react-router-dom';
 
 
 const Conta = () => {
-
+  const navigate = useNavigate();
   const nomeUser = window.sessionStorage.getItem('nome_user');
 
   return (
@@ -21,38 +21,39 @@ const Conta = () => {
           <BaseImage
             src={brownLogo}
             size='180'
+            onClick={() => navigate('/')}
           />
         </div>
         <h2 id="frase">Olá, {nomeUser}</h2>
       </div>
       <div id="corpo">
-      <div id="header-vertical">
+        <div id="header-vertical">
 
-<div className='menu-aviao'>
-  <div className="icon-box">
-    <img src={Aviao} alt="" />
-  </div>
-  <h2>Reservas</h2>
-</div>
-<div id="menu">
-<div className="icon-box">
-  <img src={Chat} alt="" />
-</div>
-  <h2>Chat</h2>
-</div>
-<div id="menu">
-<div className="icon-box">
-  <img src={Notificacao} alt="" />
-</div>
-  <h2>Notificações</h2>
-</div>
-<div id="menu">
-<div className="icon-box">
-  <img src={Perfil} alt="" />
-</div>
-  <h2>Conta</h2>
-</div>
-</div>
+          <div className='menu-aviao'>
+            <div className="icon-box">
+              <img src={Aviao} alt="" />
+            </div>
+            <h2 onClick={() => navigate('/reservas')}>Reservas</h2>
+          </div>
+          <div id="menu">
+            <div className="icon-box">
+              <img src={Chat} alt="" />
+            </div>
+            <h2>Chat</h2>
+          </div>
+          <div id="menu">
+            <div className="icon-box">
+              <img src={Notificacao} alt="" />
+            </div>
+            <h2>Notificações</h2>
+          </div>
+          <div id="menu">
+            <div className="icon-box">
+              <img src={Perfil} alt="" />
+            </div>
+            <h2>Conta</h2>
+          </div>
+        </div>
 
         <div id="informacoes-conta">
           <div>
