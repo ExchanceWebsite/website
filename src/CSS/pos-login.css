@@ -47,12 +47,14 @@ select{
     margin-right: 10px;
 }
 
-#data h3{
+#entrada-saida{
     margin-top: 10px;
     margin-right: 10px;
 }
 
-
+#nome-familia {
+   font-size: 1.2em;
+}
 
 #coluna-c button{
     position: absolute;
@@ -87,10 +89,14 @@ select{
     white-space: nowrap;
 }
 
+#frase h2 {
+   font-weight: 500;
+}
+
 
 #header-vertical{
     background-color: #faf1ec;
-    height: 860px;
+    height: 851px;
     width: 240px;
     display: flex;
     flex-direction: column;
@@ -98,24 +104,45 @@ select{
 }
 
 #menu{
-    color: #808080;
-    height: 25px;   
-    left: 30px;
-    display: flex;
-    position: relative;
-    margin-top: 40px;
+   color: #808080;
+   height: 40px;
+   display: flex;
+   margin-top: 22px;
+   width: 100%;
+   align-items: center;
 }
 
-#menu img{
-    width: 32px;
+.menu-aviao {
+   color: #808080;
+   height: 40px;
+   display: flex;
+   margin-top: 30px;
+   width: 100%;
+   align-items: center;
+}
+
+.icon-box {
+   width: 40%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.icon-box img{
     height: 32px;
 }
 
 #menu h2{
-    margin-top: 5px;
-    margin-left: 4px;
-    font-size: 20px;
-    font-weight: 400;
+   font-size: 1.1em;
+   font-weight: 600;
+   color: #595454;
+}
+
+.menu-aviao h2{
+   font-size: 1.1em;
+   font-weight: 600;
+   color: #595454;
 }
 
 #corpo{
@@ -184,7 +211,6 @@ select{
 }
 
 #imagem-alinhada img{
-    width: 290px;
     height: 250px;
 }
 
@@ -241,7 +267,8 @@ select{
 
 #informacoes-pagamento h2{
     margin-top: 10px;
-    font-weight: 500;
+    font-weight: 300;
+    font-size: 1.2rem;
 }
 
 #card-pagamento #divisoria{
@@ -257,8 +284,16 @@ select{
     margin-top: 55px;
 }
 
+#total h2 {
+   font-weight: 300;
+}
+
 #selecao-pagamento{
     margin-top: 55px;
+}
+
+#selecao-pagamento h1 {
+   font-weight: 500;
 }
 
  #reserva{
@@ -292,6 +327,10 @@ select{
     align-items: center;
     justify-content: space-evenly;
     color: #808080;
+ }
+
+ #informacoes-conta h2 {
+   font-weight: 500;
  }
 
  #card-conta{
@@ -689,3 +728,6 @@ select{
    margin-bottom: 100px;
 }
 
+#endereco-p {
+   font-size: 1.5em;
+}

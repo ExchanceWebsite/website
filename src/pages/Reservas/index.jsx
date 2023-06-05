@@ -1,8 +1,15 @@
-
 import React, { useEffect, useState } from 'react';
 import '../../CSS/pos-login.css';
 import brownLogo from '../../assets/brown-logo.png'
 import BaseImage from '../../components/BaseImage';
+import Aviao from '../../assets/modo-aviao.png'
+import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
+import ChatPink from '../../assets/icons8-bate-papo-cheio-42.png'
+import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
+import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
+import Familia from '../../assets/familia.jpeg'
+import Info from '../../assets/icons8-informações-42.png'
+
 
 const Reservas = () => {
 
@@ -20,20 +27,28 @@ const Reservas = () => {
       <div id="corpo">
         <div id="header-vertical">
 
-          <div id="menu">
-            <img src="../image/icons8-aeroporto-32 (1).png" alt="" />
-            <h2 id="ajuste">Reservas</h2>
+          <div className='menu-aviao'>
+            <div className="icon-box">
+              <img src={Aviao} alt="" />
+            </div>
+            <h2>Reservas</h2>
           </div>
           <div id="menu">
-            <img src="../image/icons8-mensagem-de-bate-papo-32.png" alt="" />
+          <div className="icon-box">
+            <img src={Chat} alt="" />
+          </div>
             <h2>Chat</h2>
           </div>
           <div id="menu">
-            <img src="../image/icons8-alarme-32.png" alt="" />
+          <div className="icon-box">
+            <img src={Notificacao} alt="" />
+          </div>
             <h2>Notificações</h2>
           </div>
           <div id="menu">
-            <img src="../image/icons8-usuário-50.png" alt="" />
+          <div className="icon-box">
+            <img src={Perfil} alt="" />
+          </div>
             <h2>Conta</h2>
           </div>
         </div>
@@ -41,21 +56,23 @@ const Reservas = () => {
         <div id="card">
           <div id="informacoes">
             <div id="imagem">
-              <div id="imagem-alinhada"></div>
+              <div id="imagem-alinhada">
+                <img src={Familia} alt="" />
+              </div>
             </div>
             <div id="endereco">
-              <h1>Rua Lorem Ipsum Sit, 3000</h1>
+              <p id="endereco-p">Rua Lorem Ipsum Sit, 3000</p>
               <div id="divisoria"></div>
-              <h2>Família Schwartz</h2>
+              <p id='nome-familia'>Família Schwartz</p>
 
               <div id="icon-endereco">
-                <div><img src="../image/icons8-bate-papo-cheio-24.png" alt="" /></div>
-                <div><img src="../image/icons8-informações-50.png" alt="" /></div>
+                <div><img src={ChatPink} alt="" /></div>
+                <div><img src={Info} alt="" /></div>
               </div>
 
               <div id="data">
-                <h3>Entrada</h3><input type="date" />
-                <h3>Sáida</h3><input type="date" />
+                <p id='entrada-saida'>Entrada</p><input type="date" />
+                <p id='entrada-saida'>Sáida</p><input type="date" />
               </div>
 
               <div id="divisoria"></div>
@@ -87,7 +104,6 @@ const Reservas = () => {
 
           <div id="selecao-pagamento">
             <h1>Pagamento</h1>
-            <input type="number" />
           </div>
         </div>
 

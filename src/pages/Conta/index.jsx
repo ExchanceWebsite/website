@@ -4,6 +4,11 @@ import '../../CSS/pos-login.css';
 import brownLogo from '../../assets/brown-logo.png'
 import BaseImage from '../../components/BaseImage';
 
+import Aviao from '../../assets/modo-aviao.png'
+import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
+import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
+import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
+
 
 const Conta = () => {
 
@@ -19,25 +24,33 @@ const Conta = () => {
         <h2 id="frase">Olá, Convidado!</h2>
       </div>
       <div id="corpo">
-        <div id="header-vertical">
+      <div id="header-vertical">
 
-          <div id="menu">
-            <img src="../image/icons8-aeroporto-32 (1).png" alt="" />
-            <h2>Reservas</h2>
-          </div>
-          <div id="menu">
-            <img src="../image/icons8-mensagem-de-bate-papo-32.png" alt="" />
-            <h2>Chat</h2>
-          </div>
-          <div id="menu">
-            <img src="../image/icons8-alarme-32.png" alt="" />
-            <h2>Notificações</h2>
-          </div>
-          <div id="menu">
-            <img src="../image/icons8-usuário-50.png" alt="" />
-            <h2 id="ajuste">Conta</h2>
-          </div>
-        </div>
+<div className='menu-aviao'>
+  <div className="icon-box">
+    <img src={Aviao} alt="" />
+  </div>
+  <h2>Reservas</h2>
+</div>
+<div id="menu">
+<div className="icon-box">
+  <img src={Chat} alt="" />
+</div>
+  <h2>Chat</h2>
+</div>
+<div id="menu">
+<div className="icon-box">
+  <img src={Notificacao} alt="" />
+</div>
+  <h2>Notificações</h2>
+</div>
+<div id="menu">
+<div className="icon-box">
+  <img src={Perfil} alt="" />
+</div>
+  <h2>Conta</h2>
+</div>
+</div>
 
         <div id="informacoes-conta">
           <div>
