@@ -19,13 +19,17 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
 
+  const [estudante, setEstudante] = useState();
+
+  setEstudante(true)
+
   function login() {
     const loginUser = { email, senha };
 
     httpFetch.post('/login', loginUser)
       .then((res) => {
         console.log(res.data);
-        navigate("/busca")
+        estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);

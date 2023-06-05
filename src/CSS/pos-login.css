@@ -1,0 +1,691 @@
+*{
+    margin: 0px;
+    font-family: Poppins;
+}
+
+button{
+    width: 170px;
+    height: 60px; 
+    border-radius: 5px;
+    background-color: #e3b59c;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+
+input{
+    height: 50px;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+select{
+    height: 60px;
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 5px; 
+ }
+
+#informacoes-localizacao input{
+    width: 992px;
+ }
+
+ #informacoes-b input{
+    width: 400px;
+ }
+
+ #selecao-pagamento input{
+    width: 230px;
+    height: 35px;
+    margin-top: 5px;
+    
+}
+
+#data input{
+    width: 200px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+#data h3{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+
+
+#coluna-c button{
+    position: absolute;
+    margin-bottom: 10px;
+    margin-right: 20px;
+ }
+
+ 
+ #informacoes-b button{
+    font-size: 18px;
+    margin-top: 23px;
+ }
+
+#header{
+    background-color: #0861A6;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#teste{
+    width: 200px;
+    margin-left: 30px;
+}
+
+#frase{
+    color: white;
+    width: 120px;
+    position: absolute;
+    right: 140px;
+    white-space: nowrap;
+}
+
+
+#header-vertical{
+    background-color: #faf1ec;
+    height: 860px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+#menu{
+    color: #808080;
+    height: 25px;   
+    left: 30px;
+    display: flex;
+    position: relative;
+    margin-top: 40px;
+}
+
+#menu img{
+    width: 32px;
+    height: 32px;
+}
+
+#menu h2{
+    margin-top: 5px;
+    margin-left: 4px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#corpo{
+    display: flex;
+}
+
+#card{
+    width: 100%;
+    height: 340px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+#informacoes{
+    background-color: white;
+    width: 70%;
+    height: 340px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+}
+
+#imagem{
+    height: 340px;
+    width: 400px;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#endereco{
+    height: 340px;
+    width: 800px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#ajuste-confirmacao{
+    display: flex;
+    margin-top: 20px;
+}
+
+#ajuste-confirmacao img{
+    margin-left: 80px;
+}
+
+#ajuste-confirmacao h1{
+    margin-top: 4px;
+    margin-left: 120px;
+}
+
+#imagem-alinhada{
+    background-image: url(../image/Family.png);
+    background-size: cover;
+    width: 290px;
+    height: 250px;
+    
+}
+
+#imagem-alinhada img{
+    width: 290px;
+    height: 250px;
+}
+
+#divisoria{
+    background-color: black;
+    width: 550px;
+    height: 1px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#icon-endereco{
+    display: flex;
+    margin-top: 20px;
+    width: 120px;
+    justify-content: space-between;
+}
+
+#data{
+    display: flex;
+    margin-top: 20px;
+    width: 400px;
+    justify-content: space-between;
+}
+
+#data-confirmacao{
+    display: flex;
+    margin-top: 20px;
+    width: 5 00px;
+    justify-content: space-between;
+}
+
+#data-confirmacao img{
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
+}
+
+#card-pagamento{
+    width: 470px;
+    position: absolute;
+    height: 350px;
+    left: 480px;
+    top: 570px; 
+    flex-direction: column;
+    align-items: start;
+}
+
+#informacoes-pagamento{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+#informacoes-pagamento h2{
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+#card-pagamento #divisoria{
+    height: 1px;
+    width: 470px;
+    position: absolute;
+}
+
+#total{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 55px;
+}
+
+#selecao-pagamento{
+    margin-top: 55px;
+}
+
+ #reserva{
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    margin-top: 740px;
+    margin-left: 1370px;
+    border-radius: 5px;
+    background-color: #e3b59c;
+    border: none;
+    color: white;
+    font-size: 30px;
+ }
+
+ #icon-endereco img{
+    width: 40px;
+    height: 40px;
+ }
+
+ #ajuste{
+    font-weight: bolder;
+    color: #464444;
+ }
+
+ #informacoes-conta{
+    width: 100%;
+    height: 600px;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #808080;
+ }
+
+ #card-conta{
+    height: 500px;
+    width: 300px;
+    border: 1px dashed #808080;
+    border-width: thin;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ #salvar-conta{
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    margin-top: 740px;
+    margin-left: 1520px;
+    border-radius: 5px;
+    background-color: #e3b59c;
+    border: none;
+    color: white;
+    font-size: 30px;
+ }
+
+ #progresso{
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+ }
+
+ #progresso img{
+    width: 80px;
+ }
+
+ #progresso #divisoria{
+    width: 1250px;
+    height: 1px;
+ }
+
+ #fase{
+    width: 1250px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+ }
+
+ #card-requisitos{
+    width: 1250px;
+    height: 610px;
+    position: absolute; 
+    margin-top: 770px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ #titulo{
+    width: 80%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+ }
+
+ #titulo h1{
+    margin-left: 30px;
+ }
+
+ a{
+    font-size:30px;
+ }
+
+ #colunas{
+    width: 100%;
+    height: 500px;
+    display: flex;
+ }
+
+ #coluna-a{
+    width: 8%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+ }
+
+ #coluna-a img{
+    width: 25px;
+ }
+
+ #coluna-b{
+    width: 60%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+ }
+
+ #coluna-b h2{
+    margin-left: 20px;
+ }
+
+ #coluna-c{
+    width: 35%;
+    height: 500px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+ }
+
+ #informacoes-localizacao{
+    height: 100px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+ }
+
+
+ #informacoes-a{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 30px;
+ }
+
+ #informacoes-b{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-top: 30px;
+ }
+
+ #disponibilidade button{
+    position: absolute;
+    margin-left: 330px;
+    margin-top: 345px;
+ }
+
+ #data-disp{
+    height: 150px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+ }
+
+ #dias{
+    height: 300px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+ }
+
+ #dias button{
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    width: 60px;
+    height: 70px;
+    border: 1px solid #808080;
+ }
+
+ #dias-minimos button{
+    width: 300px;
+    border-radius: 4px 0px 0px 4px;
+ }
+
+ #dias-minimos a{
+    font-weight: lighter;
+    margin-right: 50px;
+    font-size: 25px;
+ }
+
+ #data-disp input{
+    height: 70px;
+    width: 420px;
+    margin-top: 20px;
+    border: 1px solid #808080;
+ }
+
+ #adicionar{
+    display: flex;
+ }
+
+ #adicionar button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ #mais button{
+    border-radius: 0px;
+    border-left: none;
+ }
+
+ #menos button{
+    border-radius: 0px 4px 4px 0px;
+    border-left: none;
+
+ }
+
+ #tipo{
+    height: 150px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+ }
+ 
+ #tipo a{
+    margin-bottom: 20px;
+ }
+
+ #acomodacao button{
+    position: absolute;
+    margin-left: 330px;
+    margin-top: 365px;
+ }
+
+ #titulo-acomodacao{
+    width: 20%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+ }
+
+ #digitacao{
+    width: 80%;
+    height: 440px;
+ }  
+
+ #digitacao input{
+    width: 100%;
+    height: 400px;
+ }
+
+ #regras{
+    width: 13.5%;
+    height: 110px;
+ }
+
+ #regras button{
+    position: absolute;
+    margin-top: 20px;
+ }
+
+ #informacoes-integrantes{
+   width: 45%;
+   height: 610px;
+ }
+
+ #informacoes-integrantes input{
+   width: 450px;
+ }
+
+ #adicionar-integrante{
+   width: 45%;
+   height: 610px;
+ }
+
+ #card-integrantes{
+   width: 1250px;
+   height: 610px;
+   position: absolute; 
+   margin-top: 770px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#adicionar-integrante #titulo{
+   margin-top: 74px;
+}
+
+#adicionar-integrante input{
+   margin-bottom: 10px;
+   width: 500px;
+   height: 230px;
+}
+
+#confirmar-integrante{
+   width: 560px;
+   height: 100px;
+   margin-top: 37px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   
+}
+
+#add{
+   background-color: #0861A6;
+   margin-right: 180px;
+}
+
+#next{
+   margin-right: 50px;
+}
+
+#fotos{
+   width: 1100px;
+   height: 400px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+#fotos-host{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-direction: column;
+}
+
+#fotos-host #titulo{
+
+   width: 8%;
+   height: 22px;
+   margin-bottom: 30px;
+}
+
+#fotos-host button{
+   margin-top: 40px;
+}
+
+#load-fotos{
+   height: 300px;
+   width: 31%;
+   border: #808080 solid 1px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#cadastrar{
+   width: 400px;
+   margin-top: 70px;
+   margin-left: 1200px;
+   background-color: #0861A6;
+
+}
+
+#termos{
+   width: 800px;
+   height: 600px;
+   margin-left: 350px;
+   margin-top: 140px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-direction: column;
+}
+
+#card-termo{
+   width: 800px;
+   height: 180px;
+   display: flex;
+   align-items: start;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   justify-content: space-around;
+   flex-direction: column;
+}
+
+#card-termo h4{
+   color: #969494;
+   margin-left: 30px;
+}
+
+#card-termo h2{
+   margin-left: 30px;
+}
+
+
+#cadastrar-host{
+   margin-bottom: 100px;
+}
+

@@ -11,6 +11,9 @@ import Detalhes from './pages/Detalhes'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import ChatPage from './pages/ChatPage';
+import Reservas from './pages/Reservas';
+import Conta from './pages/Conta';
+import CadastroAcomodacao from './pages/CadastroAcomodacao';
 
 function App() {
   // const [chatVisibility, setChatVisibility] = useState(false)
@@ -37,6 +40,9 @@ function App() {
           <Route path='/cadastro' element={<Cadastro/>}></Route>
           <Route path='/chatPage' element={<ChatPage/>}></Route>
           <Route path='/detalhes' element={<Detalhes/>}></Route>
+          <Route path='/reservas' element={<Reservas/>}></Route>
+          <Route path='/conta' element={<Conta/>}></Route>
+          <Route path='/cadastroAcomodacao' element={<CadastroAcomodacao/>}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Router>
