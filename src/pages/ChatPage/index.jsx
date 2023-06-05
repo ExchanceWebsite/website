@@ -4,9 +4,9 @@ import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import TheFooter from '../../components/TheFooter';
+// import TheFooter from '../../components/TheFooter';
 import Chat from '../../components/Chat';
-import Join from '../../components/join/join';
+import Joine from '../../components/Joine/joine';
 
 
 const ChatPage = () => {
@@ -17,7 +17,7 @@ const ChatPage = () => {
     <>
         {/* <S.Container> */}
           {
-            chatVisibility ? <Chat socket={socket} setChatVisibility={setChatVisibility} /> : <Join setScocket={setScocket} setChatVisibility={setChatVisibility} />
+            chatVisibility ? <Chat socket={socket} setChatVisibility={setChatVisibility} /> : <Joine setScocket={setScocket} setChatVisibility={setChatVisibility} />
           }
         {/* </S.Container> */}
 

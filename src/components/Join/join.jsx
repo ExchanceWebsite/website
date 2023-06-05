@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import io from 'socket.io-client'
+import io from 'socket.io-client';
 
 export default function Join({setChatVisibility, setScocket}) {
 
@@ -13,10 +13,6 @@ export default function Join({setChatVisibility, setScocket}) {
         setScocket(socket)
         setChatVisibility(true)
     }
-
-    React.useEffect(() => {
-        handleSubmit();
-      },[]);
 
     return (
         <div>
