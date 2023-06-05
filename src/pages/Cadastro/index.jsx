@@ -13,8 +13,9 @@ import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
 import httpFetch from '../../hooks/httpFetch';
 
+
 const Cadastro = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [nome, setNome] = useState();
   const [cpf, setCpf] = useState();
   const [nascimento, setNascimento] = useState();
@@ -157,7 +158,7 @@ const Cadastro = () => {
                 cadastro;
                 window.sessionStorage.clear();
                 window.sessionStorage.setItem('USERNAME', nome);
-              }}>
+              }} >
             </BaseButton>
           </S.ButtonWrapper>
 

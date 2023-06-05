@@ -58,7 +58,7 @@ export default function Chat({ socket }) {
           </S.Voltar>
           <S.NomeFamilia>
             <S.ImgPerfilFamilia src={Perfil}></S.ImgPerfilFamilia>
-            <S.NomeFamiliaText>Família Pavanelli</S.NomeFamiliaText>
+            <S.NomeFamiliaText>{familys.family.nome}</S.NomeFamiliaText>
           </S.NomeFamilia>
         </S.NavBarFamilia>
         <S.BoxChat>

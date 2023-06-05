@@ -6,7 +6,7 @@ import colors from '../../styles/theme';
 import BaseContainer from '../../components/BaseContainer';
 
 export const FirstSection = styled.section`
-  /* background-image: url(${bg}); */
+  background-image: linear-gradient( to top right, white, white,  white, transparent, transparent), url(${bg3});
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

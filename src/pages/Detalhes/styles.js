@@ -6,11 +6,15 @@ import colors from '../../styles/theme';
 import BaseContainer from '../../components/BaseContainer';
 
 export const FirstSection = styled.section`
-  /* background-image: url(${bg}); */
+  background-image: linear-gradient( to top right, white, white,  white, transparent, transparent), url(${bg3});
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
   /* margin-bottom: 85px; */
+
+  ul {
+  list-style: none;
+}
 `;
 
 export const Content1 = styled.div`
@@ -19,9 +23,13 @@ export const Content1 = styled.div`
 `;
 
 export const Content2 = styled.div`
-  display: grid;
+  display: flex;
   width: 100%;
-  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 30px;
+  /* justify-content: center; */
+  /* justify-content: center; */
 `;
 
 export const CarouselWrapper = styled.div`
@@ -58,9 +66,10 @@ export const ThirdSection = styled.section`
 `;
 
 export const Title = styled.h1`
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 500;
   max-width: 500px;
+  margin-bottom: 10px;
 `
 
 export const Question = styled.h2`
@@ -91,7 +100,6 @@ export const Answer = styled.h3`
 `
 export const Content3 = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
   gap: 20px;
   /* justify-content: center; */
@@ -114,3 +122,10 @@ export const Container = styled(BaseContainer)`
     }
 `
 
+export const Descricao = styled.h3`
+ font-size: 14px;
+ font-weight: 400;
+ max-width: 800px;
+ margin-top: 20px;
+
+`
