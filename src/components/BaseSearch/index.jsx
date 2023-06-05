@@ -7,67 +7,79 @@ import { useState, useEffect } from 'react';
 import BaseSelect from '../BaseSelect';
 import BaseCheck from '../BaseCheck';
 import filtros from './select';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import BaseImage from '../BaseImage';
 import Mapa from '../../assets/mapa-img.png'
 import CarrousselBusca from '../../components/SwiperBusca/SwiperBusca';
+import httpFetch from '../../hooks/httpFetch';
+import { useNavigate } from 'react-router-dom';
 
+export const BaseSearch = () => {
+const navigate = useNavigate()
 
+const [local, setLocal] = useState();
+const [entrada, setEntrada] = useState();
+const [saida, setSaida] = useState();
+const [opcoes, setOpcoes] = useState();
 
-export const ContentBusca = ({ busca }) => {
-  return (
-    busca ? (
-      <CarrousselBusca />
-    ) : (
-      <S.Container>
-        <BaseImage size='800' src={Mapa} />
-      </S.Container >
-    )
-  )
+function filtrao() {
+  const filtroBusca = { local, entrada, saida, opcoes };
+
+  // httpFetch.post('/filtrar', filtroBusca)
+  //   .then((res) => {
+  //     console.log(res.data);
+      navigate("/busca")
+    // }).catch((err) => {
+    //   console.clear();
+    //   console.log(err.response.status);
+    //   console.log(cadastroUser);
+    // });
+
 }
 
-export const BaseSearch = ({ filtrar }) => {
-  return (
-    <S.Wrapper>
-      <BaseInput
-        placeholder="Vai pra onde?"
-        type="text"
-        max="380px"
-      // size='100%'
-      />
+return (
+  <S.Wrapper>
+    <BaseInput
+      placeholder="Vai pra onde?"
+      type="text"
+      max="380px"
+      insert={setLocal}
+    // size='100%'
+    />
 
-      <span>
-        <BaseInput
-          placeholder="Entrada"
-          type="text"
-          size="160px"
-          onFocus={(focus) => focus.target.type = "date"}
-          onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-        />
-        <BaseInput
-          placeholder="Saída"
-          type="text"
-          size="160px"
-          onFocus={(focus) => focus.target.type = "date"}
-          onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-        />
-      </span>
-      <BaseCheck
-        placeholder="Filtrar"
-        // type="combobox"
-        size="170"
-        options={filtros}
-      >
-      </BaseCheck>
-      <Link to='/busca'>
-        <BaseButton
-          onClick={filtrar}
-          children={<S.Link>Buscar</S.Link>}
-          theme={colors.primary_blue}
-          size='110'
-        />
-      </Link>
-    </S.Wrapper>
-  )
+    <span>
+      <BaseInput
+        placeholder="Entrada"
+        type="text"
+        size="160px"
+        onFocus={(focus) => focus.target.type = "date"}
+        onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
+        insert={setEntrada}
+      />
+      <BaseInput
+        placeholder="Saída"
+        type="text"
+        size="160px"
+        onFocus={(focus) => focus.target.type = "date"}
+        onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
+        insert={setSaida}
+      />
+    </span>
+    <BaseCheck
+      placeholder="Filtrar"
+      // type="combobox"
+      size="170"
+      options={filtros}
+      insert={setOpcoes}
+    >
+    </BaseCheck>
+    <BaseButton
+      onClick={filtrao}
+      children={<S.Link>Buscar</S.Link>}
+      theme={colors.primary_blue}
+      size='110'
+    />
+  </S.Wrapper>
+)
 }
 

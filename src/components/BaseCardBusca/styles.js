@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: space-evenly;
   background-color: white;
   box-shadow: #8080803b 0px 0px 10px;
-  width: 370px;
+  width: 310px;
   height: 350px;
   border-radius: 10px;
 

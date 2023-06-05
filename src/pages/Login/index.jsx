@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import * as S from '../Cadastro/styles';
-import { BaseSearch, ContentBusca } from '../../components/BaseSearch';
+import { BaseSearch } from '../../components/BaseSearch';
 import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import TheFooter from '../../components/TheFooter';
 import BaseInput from '../../components/BaseInput';
 import BaseSelect from '../../components/BaseCheck';
@@ -15,6 +15,7 @@ import httpFetch from '../../hooks/httpFetch';
 
 const Login = () => {
 
+  const navigate = useNavigate()
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
 
@@ -24,6 +25,7 @@ const Login = () => {
     httpFetch.post('/login', loginUser)
       .then((res) => {
         console.log(res.data);
+        navigate("/busca")
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);

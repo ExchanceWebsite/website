@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styles';
-import { BaseSearch, ContentBusca } from '../../components/BaseSearch';
+import { BaseSearch } from '../../components/BaseSearch';
 import TheHeader from '../../components/TheHeader';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TheFooter from '../../components/TheFooter';
 import BaseInput from '../../components/BaseInput';
 import BaseSelect from '../../components/BaseCheck';
@@ -14,7 +14,7 @@ import colors from '../../styles/theme';
 import httpFetch from '../../hooks/httpFetch';
 
 const Cadastro = () => {
-
+  const navigate = useNavigate()
   const [nome, setNome] = useState();
   const [cpf, setCpf] = useState();
   const [nascimento, setNascimento] = useState();
@@ -22,30 +22,20 @@ const Cadastro = () => {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [confirmaSenha, setConfirmaSenha] = useState();
+  const [white, setWhite] = useState();
 
 
   function cadastro() {
-    const cadastroUser = { nome, cpf, nascimento, celular, email, senha, confirmaSenha };
-    const teste = sessionStorage.getItem("nome")
-
-
+    const cadastroUser = { nome, email, senha, celular, cpf };
 
     httpFetch.post('/cadastro', cadastroUser)
       .then((res) => {
         console.log(res.data);
-  console.log(`Nome usuário ${teste}`)
-
+        navigate("/login")
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);
-        console.log(nome);
-        console.log(cpf);
-        console.log(nascimento);
-        console.log(celular);
-        console.log(email);
-        console.log(email);
-        console.log(confirmaSenha);
-  
+        console.log(cadastroUser);
       });
   }
 
@@ -54,7 +44,6 @@ const Cadastro = () => {
   const Click = (event) => {
     if (event.target.value) {
       setValor(!valor)
-      
     }
     valor ? (
       event.target.style.color = "white"
@@ -94,7 +83,7 @@ const Cadastro = () => {
   return (
 
     <>
-    
+
       <TheHeader></TheHeader>
       <S.FirstSection>
         <S.Container>
@@ -164,7 +153,11 @@ const Cadastro = () => {
               size='279'
               children='Criar conta'
               color='blue !important'
-              onClick={cadastro}>
+              onClick={() => {
+                cadastro;
+                window.sessionStorage.clear();
+                window.sessionStorage.setItem('USERNAME', nome);
+              }}>
             </BaseButton>
           </S.ButtonWrapper>
 

@@ -14,9 +14,10 @@ import 'swiper/css/pagination';
 import Carroussel from '../../components/Swiper/Swiper';
 import questions from './mock';
 import TheFooter from '../../components/TheFooter';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <>
       <S.FirstSection>
@@ -30,13 +31,12 @@ const Home = () => {
                 text="Livre-se de burocracias e processos demorados"
                 img={Objetividade}
               />
-              <Link to='/chatPage'>
-                <BaseCard
-                  title="Chat com Host"
-                  text="Converse com o seu anfitrião e alinhe interesses"
-                  img={Chat}
-                />
-              </Link>
+              <BaseCard
+                onClick={() => navigate("/chatPage")}
+                title="Chat com Host"
+                text="Converse com o seu anfitrião e alinhe interesses"
+                img={Chat}
+              />
               <BaseCard
                 title="Personalização"
                 text="Ache o melhor host para o seu perfil"
