@@ -13,11 +13,12 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Reservas = () => {
+const ReservasConf = () => {
   const navigate = useNavigate();
   const nomeUser = window.localStorage.getItem('nome_user');
 
   function reservar() {
+    alert("Reserva confirmada!")
     navigate('/reservaConfirmada')
   }
   return (
@@ -45,7 +46,7 @@ const Reservas = () => {
             <div className="icon-box">
               <img src={Chat} alt="" />
             </div>
-            <h2>Chat</h2>
+            <h2>Chat</h2>t 
           </div>
           <div id="menu">
             <div className="icon-box">
@@ -71,7 +72,7 @@ const Reservas = () => {
             <div id="endereco">
               <p id="endereco-p">Rua Lorem Ipsum Sit, 3000</p>
               <div id="divisoria"></div>
-              <p id='nome-familia'>Acomodação - casa de família</p>
+              <p id='nome-familia'>Reserva Confirmada </p>
 
               <div id="icon-endereco">
                 <div><img src={ChatPink} alt="" /></div>
@@ -89,37 +90,11 @@ const Reservas = () => {
           </div>
         </div>
 
-        <div id="card-pagamento">
-          <div id="informacoes-pagamento">
-            <h2>Taxa de acomodação</h2>
-            <h2>R$ 1000</h2>
-          </div>
-          <div id="informacoes-pagamento">
-            <h2>Taxa de Mantimento</h2>
-            <h2>R$ 1000</h2>
-          </div>
-          <div id="informacoes-pagamento">
-            <h2>Taxa de serviço Exchance</h2>
-            <h2>R$ 1000</h2>
-          </div>
 
-          <div id="divisoria"></div>
-
-          <div id="total">
-            <h2>Total</h2>
-            <h2>R$ 2000 </h2>
-          </div>
-
-          <div id="selecao-pagamento">
-            <h1>Pagamento</h1>
-          </div>
-        </div>
-
-        <button onClick={reservar} id="reserva">Confirmar reserva</button>
       </div>
     </>
 
   )
 }
 
-export default Reservas
+export default ReservasConf
