@@ -14,8 +14,8 @@ const CadastroAcomodacao = () => {
   const [endereco, setEndereco] = useState();
   const [cep, setCep] = useState();
 
-  const nomeHost = window.sessionStorage.getItem('nome_host');
-  const idHost = window.sessionStorage.getItem('id_host');
+  const nomeHost = window.localStorage.getItem('nome_host');
+  const idHost = window.localStorage.getItem('id_host');
 
 
   function cadastroLocal() {
@@ -30,8 +30,8 @@ const CadastroAcomodacao = () => {
         console.log(cadastroUser);
       });
 
-    window.sessionStorage.clear();
-    window.sessionStorage.setItem('USERNAME', nome);
+    window.localStorage.clear();
+    window.localStorage.setItem('USERNAME', nome);
   }
 
   return (
@@ -66,31 +66,33 @@ const CadastroAcomodacao = () => {
           </div>
         </div>
 
-        <h2>Complete o seu cadastro:</h2>
+        <h2>Atualize o seu cadastro</h2>
 
-        <BaseInput
-          placeholder='País'
-          type='text'
-          insert={setPais}
-        ></BaseInput>
-        <BaseInput
-          placeholder='Cidade'
-          type='text'
-          insert={setEndereco}
-        ></BaseInput>
-        <BaseInput
-          placeholder='CEP'
-          type='text'
-          insert={setCep}
-        ></BaseInput>
+        <div className='Wrapper'>
+          <BaseInput
+            placeholder='País'
+            type='text'
+            insert={setPais}
+          ></BaseInput>
+          <BaseInput
+            placeholder='Cidade'
+            type='text'
+            insert={setEndereco}
+          ></BaseInput>
+          <BaseInput
+            placeholder='CEP'
+            type='text'
+            insert={setCep}
+          ></BaseInput>
 
-        <BaseButton
-          theme={colors.primary_blue}
-          size='279'
-          children='Enviar'
-          color='blue !important'
-          onClick={cadastroLocal}>
-        </BaseButton>
+          <BaseButton
+            theme={colors.primary_blue}
+            size='279'
+            children='Enviar'
+            color='blue !important'
+            onClick={cadastroLocal}>
+          </BaseButton>
+        </div>
 
         <button id="cadastrar">+ Cadastrar acomodação</button>
       </div>

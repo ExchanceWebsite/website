@@ -34,12 +34,12 @@ const Login = () => {
         console.log(res.data);
         // estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
         navigate("/conta")
-        window.sessionStorage.clear();
-        window.sessionStorage.setItem('id_user', res.data.idEstudante);
-        window.sessionStorage.setItem('nome_user', res.data.nome);
-        window.sessionStorage.setItem('nome_email', res.data.email);
+        window.localStorage.clear();
+        window.localStorage.setItem('id_user', res.data.idEstudante);
+        window.localStorage.setItem('nome', res.data.nome);
+        window.localStorage.setItem('email', res.data.email);
       }).catch((err) => {
-        // console.clear();
+        console.clear();
         console.log(err.response.status);
         console.log(email);
         console.log(senha);
@@ -48,11 +48,11 @@ const Login = () => {
 
 
     // useEffect(() => {
-    //   window.sessionStorage.setItem('id_user', idUser);
+    //   window.localStorage.setItem('id_user', idUser);
     //   console.log(idUser)
     // }, [idUser]);
 
-    // window.sessionStorage.clear();
+    // window.localStorage.clear();
 
   }
 
@@ -62,11 +62,12 @@ const Login = () => {
     httpFetch.post('/hosts/login', loginUserHost)
       .then((res) => {
         console.log(res.data);
-        navigate("/cadastroAcomodacao")
-        window.sessionStorage.clear();
-        window.sessionStorage.setItem('id_host', res.data.idHostFamily);
-        window.sessionStorage.setItem('nome_host', res.data.nome);
-        window.sessionStorage.setItem('email_host', res.data.email);
+        navigate("/conta")
+        window.localStorage.clear();
+        window.localStorage.setItem('id_host', res.data.idHostFamily);
+        window.localStorage.setItem('nome', res.data.nome);
+        window.localStorage.setItem('nomeHost', res.data.nome);
+        window.localStorage.setItem('email', res.data.email);
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);

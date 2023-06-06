@@ -28,14 +28,18 @@ export const BaseSearch = () => {
     // const cidade = []
     // const pais = []
     // const cep = []
-    const acomodacao = {};
+    let acomodacao = {};
 
     httpFetch.get(`/acomodacoes/acomodacoes-localidade-disponivel?endereco=${endereco}&entrada=${entrada}&saida=${saida}`, )
       .then((res) => {
         console.log(res.data);
         navigate("/busca")
         acomodacao = JSON.stringify(res.data);
-        window.sessionStorage.setItem('acomodacao', acomodacao);
+        console.log(res)
+        window.localStorage.setItem('acomodacao', JSON.stringify(res.data));
+        window.localStorage.setItem('endereco', endereco);
+        window.localStorage.setItem('entrada', entrada);
+        window.localStorage.setItem('saida', saida);
         // res.data.map((acomodacao) => {
         //   acomodacao.host.map((host) => {
         //     setNomes(host.nome);
@@ -45,7 +49,7 @@ export const BaseSearch = () => {
         //   })
         // })
       }).catch((err) => {
-        console.clear();
+        // console.clear();
         console.log(err.response);
       });
   }

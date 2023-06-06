@@ -7,7 +7,7 @@ import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
 import ChatPink from '../../assets/icons8-bate-papo-cheio-42.png'
 import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
 import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
-import Familia from '../../assets/familia.jpeg'
+import Familia from '../../assets/img-opcao1.png' 
 import Info from '../../assets/icons8-informações-42.png'
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Reservas = () => {
   const navigate = useNavigate();
-  const nomeUser = window.sessionStorage.getItem('nome_user');
+  const nomeUser = window.localStorage.getItem('nome_user');
 
   return (
     <>

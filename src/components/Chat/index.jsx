@@ -3,30 +3,20 @@ import React, { useRef, useState, useEffect } from "react";
 import * as S from './styles';
 import Voltar from '../../assets/seta-esquerda.png'
 import Perfil from '../../assets/perfil.png'
-import Familia from '../../assets/familia.jpeg'
+import Familia from '../../assets/img-opcao1.png'
 import httpFetch from '../../hooks/httpFetch';
 
 
 export default function Chat({ socket }) {
 
-  const [localidade, setLocalidade] = useState();
-
-  useEffect(() => {
-    httpFetch.get(`/localidades/${localDigitado}`, localidade)
-      .then((response) => setHost(response.data))
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }, []);
-
-  const [userName, setUserName] = useState('Alex');
   const messageRef = useRef()
   const [messageList, setMessageList] = useState([])
+  const [userName, setUserName] =useState()
+  const [hostName, setHostName] =useState()
 
   useEffect(() => {
-    console.log(window.sessionStorage.getItem('nome_user'))
-    setUserName(window.sessionStorage.getItem('nome_user'))
-    console.log(userName)
+    setUserName(window.localStorage.getItem('nome'))
+    setHostName(window.localStorage.getItem('nomeHost'))
   }, [])
 
   useEffect(() => {
@@ -58,7 +48,7 @@ export default function Chat({ socket }) {
           </S.Voltar>
           <S.NomeFamilia>
             <S.ImgPerfilFamilia src={Perfil}></S.ImgPerfilFamilia>
-            <S.NomeFamiliaText>{familys.family.nome}</S.NomeFamiliaText>
+            <S.NomeFamiliaText>{hostName}</S.NomeFamiliaText>
           </S.NomeFamilia>
         </S.NavBarFamilia>
         <S.BoxChat>

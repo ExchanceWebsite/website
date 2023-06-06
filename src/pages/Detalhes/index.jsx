@@ -11,12 +11,17 @@ import colors from '../../styles/theme';
 import { Navigate } from 'react-router-dom';
 import httpFetch from '../../hooks/httpFetch';
 import { useNavigate } from 'react-router-dom';
-import src3 from '../../assets/img3-carousel.png';
+import src3 from '../../assets/img-opcao1.png' 
+;
 
 
 const Detalhes = () => {
   const navigate = useNavigate()
   const [familys, setFamilys] = useState();
+
+
+  let nome = window.localStorage.getItem('nome')
+
 
   // useEffect(() => {
   //   httpFetch.get(`/family/${family}`, hostFamily)
@@ -32,7 +37,7 @@ const Detalhes = () => {
         <TheHeader></TheHeader>
         <S.Container>
           <S.Title>
-            Família Xyz{/* {familys.family.nome} */}
+            Família {nome}
           </S.Title>
 
           <BaseImage
@@ -53,14 +58,6 @@ const Detalhes = () => {
           })} */}
 
           <S.Content2>
-            <ul>
-              <h2>Integrantes</h2>
-              <li>Julia, 21</li>
-              <li>Julia, 21</li>
-              <li>Julia, 21</li>
-              <li>Julia, 21</li>
-              <li>Julia, 21</li>
-            </ul>
 
             <S.Content3>
               <BaseButton
@@ -79,7 +76,7 @@ const Detalhes = () => {
                 children='Tenho interesse'
                 color='white'
                 onClick={() => {
-                  navigate("/login")
+                  navigate("/reservas")
                 }} />
             </S.Content3>
           </S.Content2>

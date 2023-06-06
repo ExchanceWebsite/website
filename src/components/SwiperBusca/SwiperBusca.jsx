@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper';
 import src1 from '../../assets/img-opcao1.png';
 import src2 from '../../assets/img-opcao2.png';
 import src3 from '../../assets/img-opcao3.png';
+// import src4 from '../../assets/img-opcao4.png';
 import './styles.css';
 import BaseCardBusca from '../BaseCardBusca';
 import { useEffect } from 'react';
@@ -13,11 +14,12 @@ import httpFetch from '../../hooks/httpFetch';
 
 
 const CarrouselFiltro = () => {
-
-  const acomodacao = JSON.parse(window.sessionStorage.getItem("acomodacao"))
-  console.log(acomodacao)
+  let acomodacao = JSON.parse(localStorage.getItem("acomodacao"))
+  console.log(acomodacao, "oiiiiiiii")
 
   const fotos = [src1, src2, src3]
+
+  let nome = window.localStorage.getItem('nome')
 
   return (
     <Swiper
@@ -46,7 +48,7 @@ const CarrouselFiltro = () => {
           cep='Potsdam, Alemanha'
         />
         <BaseCardBusca
-          src={src2}
+          src={src3}
           name='Família Schneider'
           adress='Orderberger Strasse'
           cep='Potsdam, Alemanha'
@@ -59,7 +61,7 @@ const CarrouselFiltro = () => {
         />
         <BaseCardBusca
           src={src1}
-          name='Família Schwarz'
+          name={'Família' + nome}
           adress='Augsburg Strasse'
           cep='Berlin, Alemanha'
         />
@@ -67,7 +69,7 @@ const CarrouselFiltro = () => {
       <SwiperSlide className="slide-item">
         <BaseCardBusca
           src={src1}
-          name='Família Schwarz'
+          name={'Família ' + nome}
           adress='Augsburg Strasse'
           cep='Berlin, Alemanha'
         />

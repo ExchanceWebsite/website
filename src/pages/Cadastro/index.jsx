@@ -61,8 +61,8 @@ const Cadastro = () => {
         console.log(cadastroUser);
       });
 
-    window.sessionStorage.clear();
-    window.sessionStorage.setItem('USERNAME', nome);
+    window.localStorage.clear();
+    window.localStorage.setItem('USERNAME', nome);
   }
 
   function cadastroHost() {
@@ -78,8 +78,8 @@ const Cadastro = () => {
         console.log(cadastroUser);
       });
 
-    window.sessionStorage.clear();
-    window.sessionStorage.setItem('USERNAME', nome);
+    window.localStorage.clear();
+    window.localStorage.setItem('USERNAME', nome);
   }
 
   const [valor, setValor] = useState(false)
