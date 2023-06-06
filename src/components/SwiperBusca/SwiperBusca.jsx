@@ -8,32 +8,30 @@ import src3 from '../../assets/img-opcao3.png';
 import './styles.css';
 import BaseCardBusca from '../BaseCardBusca';
 import { useEffect } from 'react';
+import httpFetch from '../../hooks/httpFetch';
 
 
-const CarrouselFiltro = () =>  {
-  const [familys, setFamilys] = useState();
 
-    // useEffect(() => {
-      //   httpFetch.get(`/hosts/${host}`, hostFamily)
-      //     .then((response) => setFamilys(response.data))
-      //     .catch((err) => {
-      //       console.error("ops! ocorreu um erro" + err);
-      //     });
-      // }, []);
+const CarrouselFiltro = () => {
 
-      return (
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation={true}
-          autoplay={{ delay: 3000 }}
-          direction={'horizontal'}
-          loop={true}
-          slidesPerView={'1'}
-          reverseDirection={true}
-          pagination={{ clickable: true }}
-          className="swiper-container">
-          <SwiperSlide className="slide-item">
-            {/* {familys.map((item) => {
+  const acomodacao = JSON.parse(window.sessionStorage.getItem("acomodacao"))
+  console.log(acomodacao)
+
+  const fotos = [src1, src2, src3]
+
+  return (
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation={true}
+      autoplay={{ delay: 3000 }}
+      direction={'horizontal'}
+      loop={true}
+      slidesPerView={'1'}
+      reverseDirection={true}
+      pagination={{ clickable: true }}
+      className="swiper-container">
+      <SwiperSlide className="slide-item">
+        {/* {acomodacao.map((item) => {
               <BaseCardBusca
                 src={item.src}
                 name={item.name}
@@ -41,59 +39,59 @@ const CarrouselFiltro = () =>  {
                 cep={item.cep}
               />
             })} */}
-            <BaseCardBusca
-              src={src2}
-              name='Família Schneider'
-              adress='Orderberger Strasse'
-              cep='Potsdam, Alemanha'
-            />
-            <BaseCardBusca
-              src={src2}
-              name='Família Schneider'
-              adress='Orderberger Strasse'
-              cep='Potsdam, Alemanha'
-            />
-            <BaseCardBusca
-              src={src3}
-              name='Família Diel'
-              adress='Schönhauser Strasse'
-              cep='Berlin, Alemanha'
-            />
-            <BaseCardBusca
-              src={src1}
-              name='Família Schwarz'
-              adress='Augsburg Strasse'
-              cep='Berlin, Alemanha'
-            />
-          </SwiperSlide>
-          <SwiperSlide className="slide-item">
-            <BaseCardBusca
-              src={src1}
-              name='Família Schwarz'
-              adress='Augsburg Strasse'
-              cep='Berlin, Alemanha'
-            />
-            <BaseCardBusca
-              src={src2}
-              name='Família Schneider'
-              adress='Orderberger Strasse'
-              cep='Potsdam, Alemanha'
-            />
-            <BaseCardBusca
-              src={src3}
-              name='Família Diel'
-              adress='Schönhauser Strasse'
-              cep='Berlin, Alemanha'
-            />
-            <BaseCardBusca
-              src={src1}
-              name='Família Schwarz'
-              adress='Augsburg Strasse'
-              cep='Berlin, Alemanha'
-            />
-          </SwiperSlide>
-        </Swiper>
-      )
-    }
+        <BaseCardBusca
+          src={src2}
+          name='Família Schneider'
+          adress='Orderberger Strasse'
+          cep='Potsdam, Alemanha'
+        />
+        <BaseCardBusca
+          src={src2}
+          name='Família Schneider'
+          adress='Orderberger Strasse'
+          cep='Potsdam, Alemanha'
+        />
+        <BaseCardBusca
+          src={src3}
+          name='Família Diel'
+          adress='Schönhauser Strasse'
+          cep='Berlin, Alemanha'
+        />
+        <BaseCardBusca
+          src={src1}
+          name='Família Schwarz'
+          adress='Augsburg Strasse'
+          cep='Berlin, Alemanha'
+        />
+      </SwiperSlide>
+      <SwiperSlide className="slide-item">
+        <BaseCardBusca
+          src={src1}
+          name='Família Schwarz'
+          adress='Augsburg Strasse'
+          cep='Berlin, Alemanha'
+        />
+        <BaseCardBusca
+          src={src2}
+          name='Família Schneider'
+          adress='Orderberger Strasse'
+          cep='Potsdam, Alemanha'
+        />
+        <BaseCardBusca
+          src={src3}
+          name='Família Diel'
+          adress='Schönhauser Strasse'
+          cep='Berlin, Alemanha'
+        />
+        <BaseCardBusca
+          src={src1}
+          name='Família Schwarz'
+          adress='Augsburg Strasse'
+          cep='Berlin, Alemanha'
+        />
+      </SwiperSlide>
+    </Swiper>
+  )
+}
 
 export default CarrouselFiltro;

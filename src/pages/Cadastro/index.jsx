@@ -26,6 +26,7 @@ const Cadastro = () => {
   const [confirmaSenha, setConfirmaSenha] = useState();
   const [white, setWhite] = useState();
   const [idade, setIdade] = useState();
+  const [tipo, setTipo] = useState();
 
 
   useEffect(() => {
@@ -50,7 +51,24 @@ const Cadastro = () => {
   function cadastro() {
     const cadastroUser = { nome, idade, email, senha, celular, cpf };
 
-    httpFetch.post('', cadastroUser)
+    httpFetch.post('/estudantes', cadastroUser)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/login")
+      }).catch((err) => {
+        console.clear();
+        console.log(err.response);
+        console.log(cadastroUser);
+      });
+
+    window.sessionStorage.clear();
+    window.sessionStorage.setItem('USERNAME', nome);
+  }
+
+  function cadastroHost() {
+    const cadastroUser = { nome, email, senha, celular };
+
+    httpFetch.post('/hosts', cadastroUser)
       .then((res) => {
         console.log(res.data);
         navigate("/login")
@@ -168,17 +186,25 @@ const Cadastro = () => {
               onChange={Change}
               onBlur={Blur}
               onClick={Click}
+              insert={setTipo}
             >
               <option value="">Cadastrar como</option>
               <option value="1">Host</option>
               <option value="2">Estudante</option>
             </S.Select>
+
             <BaseButton
               theme={colors.primary_blue}
               size='279'
               children='Criar conta'
               color='blue !important'
-              onClick={cadastro}>
+              onClick={
+                tipo === 2 ? (
+                  cadastro
+                ) : (
+                  cadastroHost
+                )
+              }>
             </BaseButton>
           </S.ButtonWrapper>
 

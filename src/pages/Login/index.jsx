@@ -19,7 +19,8 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [idUser, setIdUser] = useState();
-
+  const [tipo, setTipo] = useState();
+  const [white, setWhite] = useState();
 
   // const [estudante, setEstudante] = useState();
 
@@ -28,14 +29,15 @@ const Login = () => {
   function login() {
 
     const loginUser = { email, senha };
-    httpFetch.post('/login', loginUser)
+    httpFetch.post('/estudantes/login', loginUser)
       .then((res) => {
         console.log(res.data);
         // estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
         navigate("/conta")
-          window.sessionStorage.clear();
-          window.sessionStorage.setItem('id_user', res.data.idEstudante);
-          window.sessionStorage.setItem('nome_user', res.data.nome);
+        window.sessionStorage.clear();
+        window.sessionStorage.setItem('id_user', res.data.idEstudante);
+        window.sessionStorage.setItem('nome_user', res.data.nome);
+        window.sessionStorage.setItem('nome_email', res.data.email);
       }).catch((err) => {
         // console.clear();
         console.log(err.response.status);
@@ -54,7 +56,67 @@ const Login = () => {
 
   }
 
+  function loginHost() {
 
+    const loginUserHost = { email, senha };
+    httpFetch.post('/hosts/login', loginUserHost)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/cadastroAcomodacao")
+        window.sessionStorage.clear();
+        window.sessionStorage.setItem('id_host', res.data.idHostFamily);
+        window.sessionStorage.setItem('nome_host', res.data.nome);
+        window.sessionStorage.setItem('email_host', res.data.email);
+      }).catch((err) => {
+        console.clear();
+        console.log(err.response.status);
+        console.log(email);
+        console.log(senha);
+        console.log(err);
+      });
+  }
+
+  const [valor, setValor] = useState(false)
+
+  const Click = (event) => {
+    if (event.target.value) {
+      setValor(!valor)
+    }
+    valor ? (
+      event.target.style.color = "white"
+    ) :
+      event.target.style.color = "grey"
+  }
+
+  const Focus = (event) => {
+    if (event.target.value) {
+      setWhite(true)
+    }
+    valor ? (
+      event.target.style.color = "white"
+    ) :
+      event.target.style.color = "grey"
+  }
+
+  const Change = (event) => {
+    if (event.target.value) {
+      setWhite(false)
+    }
+    valor ? (
+      event.target.style.color = "white"
+    ) :
+      event.target.style.color = "grey"
+  }
+
+  const Blur = (event) => {
+    if (event.target.value) {
+      setWhite(true)
+    }
+    valor ? (
+      event.target.style.color = "white"
+    ) :
+      event.target.style.color = "grey"
+  }
   return (
     <>
       <TheHeader></TheHeader>
@@ -74,12 +136,31 @@ const Login = () => {
             insert={setSenha}
           ></BaseInput>
 
+          <S.Select
+            onFocus={Focus}
+            onChange={Change}
+            onBlur={Blur}
+            onClick={Click}
+            insert={setTipo}
+          >
+            <option value="">Logar como</option>
+            <option value="1">Host</option>
+            <option value="2">Estudante</option>
+          </S.Select>
+
+
           <BaseButton
             theme={colors.primary_blue}
             size='279'
             children='Entrar'
             color='blue !important'
-            onClick={login}>
+            onClick={
+              tipo == 2 ? (
+                login
+              ) : (
+                loginHost
+              )
+            }>
           </BaseButton>
 
         </S.Container>
@@ -88,5 +169,4 @@ const Login = () => {
     </>
   )
 }
-
 export default Login;

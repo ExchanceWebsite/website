@@ -3,9 +3,36 @@ import React, { useEffect, useState } from 'react';
 import '../../CSS/pos-login.css';
 import brownLogo from '../../assets/brown-logo.png'
 import BaseImage from '../../components/BaseImage';
-
+import BaseInput from '../../components/BaseInput';
+import BaseButton from '../../components/BaseButton';
+import colors from '../../styles/theme';
+import httpFetch from '../../hooks/httpFetch';
 
 const CadastroAcomodacao = () => {
+
+  const [pais, setPais] = useState();
+  const [endereco, setEndereco] = useState();
+  const [cep, setCep] = useState();
+
+  const nomeHost = window.sessionStorage.getItem('nome_host');
+  const idHost = window.sessionStorage.getItem('id_host');
+
+
+  function cadastroLocal() {
+    const cadastroUser = { idHost, pais, endereco, cep };
+
+    httpFetch.post('/hosts', cadastroUser)
+      .then((res) => {
+        console.log(res.data);
+      }).catch((err) => {
+        console.clear();
+        console.log(err.response);
+        console.log(cadastroUser);
+      });
+
+    window.sessionStorage.clear();
+    window.sessionStorage.setItem('USERNAME', nome);
+  }
 
   return (
     <>
@@ -14,9 +41,9 @@ const CadastroAcomodacao = () => {
           <BaseImage
             src={brownLogo}
             size='180'
-          />  
+          />
         </div>
-        <h2 id="frase">Olá, Família Schwartz!</h2>
+        <h2 id="frase">Olá, {nomeHost}</h2>
       </div>
       <div id="corpo">
         <div id="header-vertical">
@@ -38,6 +65,32 @@ const CadastroAcomodacao = () => {
             <h2 id="ajuste">Conta</h2>
           </div>
         </div>
+
+        <h2>Complete o seu cadastro:</h2>
+
+        <BaseInput
+          placeholder='País'
+          type='text'
+          insert={setPais}
+        ></BaseInput>
+        <BaseInput
+          placeholder='Cidade'
+          type='text'
+          insert={setEndereco}
+        ></BaseInput>
+        <BaseInput
+          placeholder='CEP'
+          type='text'
+          insert={setCep}
+        ></BaseInput>
+
+        <BaseButton
+          theme={colors.primary_blue}
+          size='279'
+          children='Enviar'
+          color='blue !important'
+          onClick={cadastroLocal}>
+        </BaseButton>
 
         <button id="cadastrar">+ Cadastrar acomodação</button>
       </div>
