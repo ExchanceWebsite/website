@@ -11,7 +11,7 @@ import colors from '../../styles/theme';
 import { Navigate } from 'react-router-dom';
 import httpFetch from '../../hooks/httpFetch';
 import { useNavigate } from 'react-router-dom';
-import src3 from '../../assets/img-opcao1.png' 
+import src2 from '../../assets/img-opcao2.png' 
 ;
 
 
@@ -19,17 +19,13 @@ const Detalhes = () => {
   const navigate = useNavigate()
   const [familys, setFamilys] = useState();
 
+  let acomodacao = JSON.parse(localStorage.getItem("acomodacao"))
+  console.log(acomodacao, "acomodação")
 
-  let nome = window.localStorage.getItem('nome')
+  let nomeClicado = window.localStorage.getItem('nomeClicado')
+  let descClicada = window.localStorage.getItem('descClicada')
 
 
-  // useEffect(() => {
-  //   httpFetch.get(`/family/${family}`, hostFamily)
-  //     .then((response) => setFamilys(response.data))
-  //     .catch((err) => {
-  //       console.error("ops! ocorreu um erro" + err);
-  //     });
-  // }, []);
 
   return (
     <>
@@ -37,16 +33,16 @@ const Detalhes = () => {
         <TheHeader></TheHeader>
         <S.Container>
           <S.Title>
-            Família {nome}
+            Família {window.localStorage.getItem('nomeClicado')}
           </S.Title>
 
           <BaseImage
             // src={familys.family.src}
-            src={src3}
+            src={src2}
             size='600'
           />
           <S.Descricao>
-            Como host family, oferecemos uma acomodação confortável, com um quarto privativo para o estudante, mobiliado com cama, mesa de estudo, armário e acesso à internet. Além disso, proporcionamos refeições caseiras, adaptadas às preferências alimentares do estudante, e compartilhamos momentos em família durante as refeições.
+            {descClicada}
             {/* {familys.family.descricao} */}
           </S.Descricao>
 

@@ -13,8 +13,10 @@ import { useState } from 'react';
 import ChatPage from './pages/ChatPage';
 import Reservas from './pages/Reservas';
 import Conta from './pages/Conta';
+import ContaE from './pages/ContaE';
 import CadastroAcomodacao from './pages/CadastroAcomodacao';
 import ReservasConf from './pages/ReservasConf';
+import ReservasHost from './pages/ReservasHost';
 
 function App() {
   // const [chatVisibility, setChatVisibility] = useState(false)
@@ -43,7 +45,9 @@ function App() {
           <Route path='/detalhes' element={<Detalhes/>}></Route>
           <Route path='/reservas' element={<Reservas/>}></Route>
           <Route path='/reservaConfirmada' element={<ReservasConf/>}></Route>
+          <Route path='/reservasHost' element={<ReservasHost/>}></Route>
           <Route path='/conta' element={<Conta/>}></Route>
+          <Route path='/contaE' element={<ContaE/>}></Route>
           <Route path='/cadastroAcomodacao' element={<CadastroAcomodacao/>}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>

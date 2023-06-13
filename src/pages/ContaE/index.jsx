@@ -15,49 +15,40 @@ import httpFetch from '../../hooks/httpFetch';
 import * as S from './styles';
 
 
-const Conta = () => {
+const ContaE = () => {
   const navigate = useNavigate();
   // let nomeUser = window.localStorage.getItem('nome');
 
-  const [paisHost, setPaisHost] = useState();
-  const [cidadeHost, setCidadeHost] = useState();
-  const [cepHost, setCepHost] = useState();
+  const [paisEst, setPaisEst] = useState();
+  const [cidadeEst, setCidadeEst] = useState();
+  const [cepEst, setCepEst] = useState();
   const [nome, setNome] = useState();
   const [email, setEmail] = useState();
   const [id, setId] = useState();
   const [descricao, setDescricao] = useState();
-  const [verificado, setVerificado] = useState();
+  // const [verificado, setVerificado] = useState();
   const [senha, setSenha] = useState();
-  const [frente, setFrente] = useState();
-  const [verso, setVerso] = useState();
-  const [selfie, setSelfie] = useState();
   const [arquivo, setArquivo] = useState();
 
-  const [inicio, setInicio] = useState();
-  const [fim, setFim] = useState();
-  const [diaria, setDiaria] = useState();
-  const [regras, setRegras] = useState();
-
-
   useEffect(() => {
-    setNome(window.localStorage.getItem('nomeHost'))
-    setEmail(window.localStorage.getItem('emailHost'))
+    setNome(window.localStorage.getItem('nomeUser'))
+    setEmail(window.localStorage.getItem('emailUser'))
   }, [])
 
   function buscarDados() {
-    httpFetch.get(`/hosts/host?emai=${email}&nome=${nome}`,)
+    httpFetch.get(`/estudantes/estudante?emai=${email}&nome=${nome}`,)
       .then((res) => {
         console.log(res.data);
-        window.localStorage.setItem('idHost', res.data.idHostFamily);
-        setId(window.localStorage.getItem('idHost'))
+        window.localStorage.setItem('idEstudante', res.data.idEstudante);
+        setId(window.localStorage.getItem('id'))
         setNome(res.data.nome)
         setEmail(res.data.email)
         setVerificado(res.data.verificado)
         setDescricao(res.data.descricao)
         setSenha(res.data.senha)
-        setPaisHost(window.localStorage.getItem('paisHost'))
-        setCidadeHost(window.localStorage.getItem('cidadeHost'))
-        setCepHost(window.localStorage.getItem('cepHost'))
+        setPaisEst(window.localStorage.getItem('paisEst'))
+        setCidadeEst(window.localStorage.getItem('cidadeEst'))
+        setCepEst(window.localStorage.getItem('cepEst'))
       }).catch((err) => {
         console.clear();
         console.log(err.response);
@@ -68,20 +59,11 @@ const Conta = () => {
     buscarDados
   }, [])
 
-  useEffect(() => {
-    window.localStorage.setItem('diaria', diaria)
-  }, [diaria])
-
   const upload = (event) => {
-    console.log(arquivo, "valor")
+    console.log(event.target.value, "valor")
     setArquivo(event.target.value)
-
-    window.localStorage.setItem('frente', frente)
-    window.localStorage.setItem('verso', verso)
-    window.localStorage.setItem('selfie', selfie)
-
     const uploadUser = { arquivo };
-    event.target.parentNode.style.backgroundImage = `url(${event.target.value})`
+    event.target.parentNode.style.backgroundImage=`url(${event.target.value})`
     httpFetch.post(`/estudantes?id=${id}`, uploadUser)
       .then((res) => {
         console.log(res.data);
@@ -96,43 +78,23 @@ const Conta = () => {
     // window.localStorage.setItem('USERNAME', nome);
   }
 
+  const imagens = () => {
 
-
-  function cadastroLocal() {
-    setVerificado("Verificado por VerifyHost")
-    let localidade = { "idLocalidade": "1" };
-    const cadastroUser = { nome, verificado, descricao, email, senha, localidade };
-
-    httpFetch.put(`/hosts?id=${id}`, cadastroUser)
-      .then((res) => {
-        console.log(res.data, "foi");
-        alert("Cadastro atualizado com sucesso!")
-      }).catch((err) => {
-        console.clear();
-        console.log(err.response);
-        console.log(cadastroUser);
-      });
   }
 
-  function cadastroAcomodacao() {
+  function cadastroLocal() {
+    // setVerificado("Verificado por VerifyHost")
+    let localidade = { "idLocalidade": "1" };
+    const cadastroUser = { nome, descricao, email, senha, localidade };
 
-    let host = { "idHostFamily": id }
-    let desc = "sou um bom host"
-    const cadastroAc = { host, desc, inicio, fim, diaria, regras };
-
-    httpFetch.post('/acomodacoes', cadastroAc)
+    httpFetch.put(`/estudantes?id=${id}`, cadastroUser)
       .then((res) => {
         console.log(res.data, "foi");
-        console.log(res, "RES");
-        alert("Acomodação atualizada com sucesso!")
-        console.log(cadastroAc, "cadastroAC")
       }).catch((err) => {
         console.clear();
         console.log(err.response);
         console.log(cadastroUser);
       });
-
-      console.log(diaria)
   }
 
 
@@ -155,7 +117,7 @@ const Conta = () => {
             <div className="icon-box">
               <img src={Aviao} alt="" />
             </div>
-            <h2 onClick={() => navigate('/reservasHost')}>Reservas</h2>
+            <h2 onClick={() => navigate('/reservas')}>Reservas</h2>
           </div>
           <div id="menu">
             <div className="icon-box">
@@ -163,6 +125,7 @@ const Conta = () => {
             </div>
             <h2>Chat</h2>
           </div>
+     
           <div id="menu">
             <div className="icon-box">
               <img src={Perfil} alt="" />
@@ -203,21 +166,21 @@ const Conta = () => {
             <BaseInput
               placeholder='País'
               type='text'
-              onBlur={(event) => window.localStorage.setItem('paisHost', event.target.value)}
-              value={paisHost}
+              onBlur={(event) => window.localStorage.setItem('paisEst', event.target.value)}
+              value={paisEst}
               onFocus={buscarDados}
             ></BaseInput>
             <BaseInput
               placeholder='Cidade'
               type='text'
-              onBlur={(event) => window.localStorage.setItem('cidadeHost', event.target.value)}
-              value={cidadeHost}
+              onBlur={(event) => window.localStorage.setItem('cidadeEst', event.target.value)}
+              value={cidadeEst}
             ></BaseInput>
             <BaseInput
               placeholder='CEP'
               type='text'
-              onBlur={(event) => window.localStorage.setItem('cepHost', event.target.value)}
-              value={cepHost}
+              onBlur={(event) => window.localStorage.setItem('cepEst', event.target.value)}
+              value={cepEst}
             ></BaseInput>
 
             <BaseButton
@@ -229,74 +192,24 @@ const Conta = () => {
             </BaseButton>
           </S.ButtonWrapper>
 
-          <S.ButtonWrapper>
-            <S.Subtitle>Dados da acomodação:</S.Subtitle>
-            <BaseInput
-              onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Início disponibilidade'
-              type='text'
-              insert={setInicio}
-              value={inicio}
-            ></BaseInput>
-            <BaseInput
-              onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Fim disponibilidde'
-              type='text'
-              insert={setFim}
-              value={fim}
-            ></BaseInput>
-            <BaseInput
-              placeholder='Valor da diária'
-              type='text'
-              insert={setDiaria}
-              value={diaria}
-            ></BaseInput>
-            <BaseInput
-              placeholder='Regras'
-              type='text'
-              insert={setRegras}
-              value={regras}
-            ></BaseInput>
-              <BaseInput
-              onFocus={(focus) => focus.target.type = "file"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Foto da família'
-              insert={setRegras}
-              value={regras}
-            ></BaseInput>
-
-            <BaseButton
-              theme={colors.primary_blue}
-              size='279'
-              children='Enviar'
-              color='blue !important'
-              onClick={cadastroAcomodacao}
-            >
-            </BaseButton>
-          </S.ButtonWrapper>
-
-
 
           <div id="informacoes-conta">
             <div>
               <h2>Identidade frente</h2>
               <div id="card-conta">
-                <BaseInput type="file" insert={setFrente} onBlur={upload} />
-              </div>
+                <input type="file" onChange={upload} /><img src="../image/icons8-fazer-upload-50.png" alt="" /></div>
             </div>
             <div>
               <h2>Identidade Verso</h2>
-              <div id="card-conta">
-                <BaseInput type="file" insert={setVerso} onBlur={upload} />
-              </div>
+              <div id="card-conta"><img src="../image/icons8-fazer-upload-50.png" alt="" /></div>
+            </div>
+            <div>
+              <h2>Matrícula Curso</h2>
+              <div id="card-conta"><img src="../image/icons8-fazer-upload-50.png" alt="" /></div>
             </div>
             <div>
               <h2>Selfie</h2>
-              <div id="card-conta">
-                <BaseInput type="file" insert={setSelfie} onBlur={upload} />
-              </div>
+              <div id="card-conta"><img src="../image/icons8-fazer-upload-50.png" alt="" /></div>
             </div>
           </div>
 
@@ -310,4 +223,4 @@ const Conta = () => {
   )
 }
 
-export default Conta;
+export default ContaE;

@@ -7,7 +7,7 @@ import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
 import ChatPink from '../../assets/icons8-bate-papo-cheio-42.png'
 import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
 import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
-import Familia from '../../assets/img-opcao1.png' 
+import Familia from '../../assets/img-opcao2.png' 
 import Info from '../../assets/icons8-informações-42.png'
 import { useNavigate } from 'react-router-dom';
 
@@ -48,12 +48,7 @@ const ReservasConf = () => {
             </div>
             <h2>Chat</h2>t 
           </div>
-          <div id="menu">
-            <div className="icon-box">
-              <img src={Notificacao} alt="" />
-            </div>
-            <h2>Notificações</h2>
-          </div>
+      
           <div id="menu">
             <div className="icon-box">
               <img src={Perfil} alt="" />
@@ -79,10 +74,7 @@ const ReservasConf = () => {
                 <div><img src={Info} alt="" /></div>
               </div>
 
-              <div id="data">
-                <p id='entrada-saida'>Entrada</p><input type="date" />
-                <p id='entrada-saida'>Sáida</p><input type="date" />
-              </div>
+             
 
               <div id="divisoria"></div>
             </div>

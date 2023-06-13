@@ -36,8 +36,11 @@ export const TextWrapper = styled.div`
   p {
   font-size: 14px;
   color: ${colors.darker_grey};
+  }
 
+  p:last-child {
+    display: none;
+  }
 
-}
 `
 

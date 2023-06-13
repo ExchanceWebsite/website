@@ -74,13 +74,13 @@ export const Container = styled(BaseContainer)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 300px;
+    margin-left: 50px;
     margin-top: 40px;
 `
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+  gap: 6px;
   width: fit-content;
   border-radius: 5px;
 `

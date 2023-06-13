@@ -15,11 +15,41 @@ import httpFetch from '../../hooks/httpFetch';
 
 const CarrouselFiltro = () => {
   let acomodacao = JSON.parse(localStorage.getItem("acomodacao"))
-  console.log(acomodacao, "oiiiiiiii")
+  console.log(acomodacao, "acomodação")
 
   const fotos = [src1, src2, src3]
 
   let nome = window.localStorage.getItem('nome')
+
+  const [endereco, setEndereco] = useState();
+  const [entrada, setEntrada] = useState();
+  const [saida, setSaida] = useState();
+
+  // acomodacao.map((acomodacao) => {
+  //   acomodacao.host.map((host) => {
+  //     console.log(host.nome, "oiiiiiiiiiiieeeeee");
+  //     console.log(host.localidade.endereco);
+  //     console.log(host.localidade.pais);
+  //     console.log(host.localidade.pais);
+  //   })
+  // })
+
+  acomodacao.map((unidade) => {
+    console.log(unidade, "unidade")
+    console.log(unidade.host.nome, "nome")
+    console.log(unidade.host.localidade.endereco, "nome")
+    console.log(unidade.regras, "nome")
+  })
+
+  const detalhes = (event) => {
+    let nomeClicado = event.target.parentNode.firstChild.nextSibling.innerHTML
+    let descClicada = event.target.parentNode.lastChild.innerHTML
+
+    window.localStorage.setItem("nomeClicado", nomeClicado)
+    window.localStorage.setItem("descClicada", descClicada)
+    // window.localStorage.setItem(event.target.adress)
+    // window.localStorage.setItem(event.target.cep)
+  }
 
   return (
     <Swiper
@@ -33,15 +63,17 @@ const CarrouselFiltro = () => {
       pagination={{ clickable: true }}
       className="swiper-container">
       <SwiperSlide className="slide-item">
-        {/* {acomodacao.map((item) => {
-              <BaseCardBusca
-                src={item.src}
-                name={item.name}
-                adress={item.adress}
-                cep={item.cep}
-              />
-            })} */}
-        <BaseCardBusca
+        {acomodacao.map((unidade) => (
+          <BaseCardBusca
+            onClick={detalhes}
+            src={src2}
+            name={unidade.host.nome}
+            adress={unidade.host.localidade.endereco}
+            cep={unidade.host.localidade.cep}
+            desc={unidade.host.descricao}
+          />
+        ))}
+        {/* <BaseCardBusca
           src={src2}
           name='Família Schneider'
           adress='Orderberger Strasse'
@@ -90,7 +122,7 @@ const CarrouselFiltro = () => {
           name='Família Schwarz'
           adress='Augsburg Strasse'
           cep='Berlin, Alemanha'
-        />
+        /> */}
       </SwiperSlide>
     </Swiper>
   )

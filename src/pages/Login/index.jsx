@@ -33,11 +33,11 @@ const Login = () => {
       .then((res) => {
         console.log(res.data);
         // estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
-        navigate("/conta")
-        window.localStorage.clear();
+        navigate("/contaE")
+        // window.localStorage.clear();
         window.localStorage.setItem('id_user', res.data.idEstudante);
-        window.localStorage.setItem('nome', res.data.nome);
-        window.localStorage.setItem('email', res.data.email);
+        window.localStorage.setItem('nomeUser', res.data.nome);
+        window.localStorage.setItem('emailUser', res.data.email);
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);
@@ -61,19 +61,21 @@ const Login = () => {
     const loginUserHost = { email, senha };
     httpFetch.post('/hosts/login', loginUserHost)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         navigate("/conta")
-        window.localStorage.clear();
+        // window.localStorage.clear();
         window.localStorage.setItem('id_host', res.data.idHostFamily);
         window.localStorage.setItem('nome', res.data.nome);
         window.localStorage.setItem('nomeHost', res.data.nome);
-        window.localStorage.setItem('email', res.data.email);
+        window.localStorage.setItem('emailHost', res.data.email);
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);
         console.log(email);
         console.log(senha);
         console.log(err);
+        console.log(tipo.value, "tipo");
+
       });
   }
 
@@ -110,6 +112,9 @@ const Login = () => {
   }
 
   const Blur = (event) => {
+    setTipo(event.target.value)
+    console.log(tipo)
+    window.localStorage.setItem('tipo', tipo)
     if (event.target.value) {
       setWhite(true)
     }
@@ -142,7 +147,6 @@ const Login = () => {
             onChange={Change}
             onBlur={Blur}
             onClick={Click}
-            insert={setTipo}
           >
             <option value="">Logar como</option>
             <option value="1">Host</option>

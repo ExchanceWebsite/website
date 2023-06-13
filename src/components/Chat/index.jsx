@@ -15,7 +15,7 @@ export default function Chat({ socket }) {
   const [hostName, setHostName] =useState()
 
   useEffect(() => {
-    setUserName(window.localStorage.getItem('nome'))
+    setUserName(window.localStorage.getItem('nomeUser'))
     setHostName(window.localStorage.getItem('nomeHost'))
   }, [])
 
@@ -48,7 +48,7 @@ export default function Chat({ socket }) {
           </S.Voltar>
           <S.NomeFamilia>
             <S.ImgPerfilFamilia src={Perfil}></S.ImgPerfilFamilia>
-            <S.NomeFamiliaText>{hostName}</S.NomeFamiliaText>
+            <S.NomeFamiliaText>{window.localStorage.getItem('nomeClicado')}</S.NomeFamiliaText>
           </S.NomeFamilia>
         </S.NavBarFamilia>
         <S.BoxChat>

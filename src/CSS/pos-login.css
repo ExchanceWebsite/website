@@ -96,7 +96,8 @@ select{
 
 #header-vertical{
     background-color: #faf1ec;
-    height: 1000px;
+    height: 1000vh;
+    position: absolute;
     width: 240px;
     display: flex;
     flex-direction: column;

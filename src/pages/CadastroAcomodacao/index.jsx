@@ -30,7 +30,7 @@ const CadastroAcomodacao = () => {
         console.log(cadastroUser);
       });
 
-    window.localStorage.clear();
+    // window.localStorage.clear();
     window.localStorage.setItem('USERNAME', nome);
   }
 

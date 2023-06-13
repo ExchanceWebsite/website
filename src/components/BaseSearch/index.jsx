@@ -24,10 +24,6 @@ export const BaseSearch = () => {
   function filtrao() {
 
     const filtroBusca = { endereco, entrada, saida };
-    // const [nomes, setNomes] = useState([]);
-    // const cidade = []
-    // const pais = []
-    // const cep = []
     let acomodacao = {};
 
     httpFetch.get(`/acomodacoes/acomodacoes-localidade-disponivel?endereco=${endereco}&entrada=${entrada}&saida=${saida}`, )
@@ -43,7 +39,7 @@ export const BaseSearch = () => {
         // res.data.map((acomodacao) => {
         //   acomodacao.host.map((host) => {
         //     setNomes(host.nome);
-        //     cidade.push(host.localidade.cidade);
+        //     endereco.push(host.localidade.endereco);
         //     pais.push(host.localidade.pais);
         //     cep.push(host.localidade.pais);
         //   })

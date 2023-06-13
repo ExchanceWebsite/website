@@ -80,7 +80,7 @@ export const Container = styled(BaseContainer)`
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+  gap: 6px;
   width: fit-content;
   border-radius: 5px;
 `

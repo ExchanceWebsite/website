@@ -7,7 +7,7 @@ import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
 import ChatPink from '../../assets/icons8-bate-papo-cheio-42.png'
 import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
 import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
-import Familia from '../../assets/img-opcao1.png' 
+import Familia from '../../assets/img-opcao2.png' 
 import Info from '../../assets/icons8-informações-42.png'
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Reservas = () => {
   const navigate = useNavigate();
-  const nomeUser = window.localStorage.getItem('nome_user');
+  const nomeUser = window.localStorage.getItem('nomeUser');
+
+  let diaria = window.localStorage.getItem('diaria')
+  let acomod = diaria * 30
+  let taxa = acomod * 0.15
+  let total = acomod + taxa
 
   function reservar() {
     navigate('/reservaConfirmada')
@@ -47,12 +52,7 @@ const Reservas = () => {
             </div>
             <h2>Chat</h2>
           </div>
-          <div id="menu">
-            <div className="icon-box">
-              <img src={Notificacao} alt="" />
-            </div>
-            <h2>Notificações</h2>
-          </div>
+    
           <div id="menu">
             <div className="icon-box">
               <img src={Perfil} alt="" />
@@ -71,16 +71,15 @@ const Reservas = () => {
             <div id="endereco">
               <p id="endereco-p">Rua Lorem Ipsum Sit, 3000</p>
               <div id="divisoria"></div>
-              <p id='nome-familia'>Acomodação - casa de família</p>
-
+              <p id='nome-familia'>Família {window.localStorage.getItem('nomeClicado')}</p>
               <div id="icon-endereco">
                 <div><img src={ChatPink} alt="" /></div>
                 <div><img src={Info} alt="" /></div>
               </div>
 
               <div id="data">
-                <p id='entrada-saida'>Entrada</p><input type="date" />
-                <p id='entrada-saida'>Sáida</p><input type="date" />
+                <p id='entrada-saida'>Entrada</p><input value='2023-06-13' type="date" />
+                <p id='entrada-saida'>Sáida</p><input value='2023-07-13' type="date" />
               </div>
 
               <div id="divisoria"></div>
@@ -92,22 +91,18 @@ const Reservas = () => {
         <div id="card-pagamento">
           <div id="informacoes-pagamento">
             <h2>Taxa de acomodação</h2>
-            <h2>R$ 1000</h2>
-          </div>
-          <div id="informacoes-pagamento">
-            <h2>Taxa de Mantimento</h2>
-            <h2>R$ 1000</h2>
+            <h2>{acomod}</h2>
           </div>
           <div id="informacoes-pagamento">
             <h2>Taxa de serviço Exchance</h2>
-            <h2>R$ 1000</h2>
+            <h2>{taxa}</h2>
           </div>
 
           <div id="divisoria"></div>
 
           <div id="total">
             <h2>Total</h2>
-            <h2>R$ 2000 </h2>
+            <h2>R$ {total} </h2>
           </div>
 
           <div id="selecao-pagamento">

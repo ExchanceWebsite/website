@@ -49,7 +49,8 @@ const Cadastro = () => {
   }, [nascimento])
 
   function cadastro() {
-    const cadastroUser = { nome, idade, email, senha, celular, cpf };
+    let descricao = "x"
+    const cadastroUser = { nome, idade, descricao, email, senha, celular, cpf };
 
     httpFetch.post('/estudantes', cadastroUser)
       .then((res) => {
@@ -61,7 +62,7 @@ const Cadastro = () => {
         console.log(cadastroUser);
       });
 
-    window.localStorage.clear();
+    // window.localStorage.clear();
     window.localStorage.setItem('USERNAME', nome);
   }
 
@@ -78,7 +79,7 @@ const Cadastro = () => {
         console.log(cadastroUser);
       });
 
-    window.localStorage.clear();
+    // window.localStorage.clear();
     window.localStorage.setItem('USERNAME', nome);
   }
 
@@ -105,6 +106,8 @@ const Cadastro = () => {
   }
 
   const Change = (event) => {
+
+
     if (event.target.value) {
       setWhite(false)
     }
@@ -115,6 +118,9 @@ const Cadastro = () => {
   }
 
   const Blur = (event) => {
+    setTipo(event.target.value)
+    console.log(tipo, "valorrrrrr")
+    // setTipo(event.target.value)
     if (event.target.value) {
       setWhite(true)
     }
@@ -152,7 +158,10 @@ const Cadastro = () => {
               placeholder='Nascimento'
               type='text'
               onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
+              onBlur={(blur) => {
+                blur.target.value ? null : blur.target.type = "text"
+                idade < 13 ? alert('Você deve ter ao menos 13 anos para se cadastrar') : null
+              }}
               insert={setNascimento}
             ></BaseInput>
             <BaseInput
@@ -186,11 +195,10 @@ const Cadastro = () => {
               onChange={Change}
               onBlur={Blur}
               onClick={Click}
-              insert={setTipo}
             >
-              <option value="">Cadastrar como</option>
-              <option value="1">Host</option>
-              <option value="2">Estudante</option>
+              <option value="1">Cadastrar como</option>
+              <option value="host">Host</option>
+              <option value="estudante">Estudante</option>
             </S.Select>
 
             <BaseButton
@@ -199,7 +207,7 @@ const Cadastro = () => {
               children='Criar conta'
               color='blue !important'
               onClick={
-                tipo === 2 ? (
+                tipo === 'estudante' ? (
                   cadastro
                 ) : (
                   cadastroHost

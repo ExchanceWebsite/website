@@ -15,7 +15,7 @@ import httpFetch from '../../hooks/httpFetch';
 import * as S from './styles';
 
 
-const Conta = () => {
+const ReservasHost = () => {
   const navigate = useNavigate();
   // let nomeUser = window.localStorage.getItem('nome');
 
@@ -32,12 +32,6 @@ const Conta = () => {
   const [verso, setVerso] = useState();
   const [selfie, setSelfie] = useState();
   const [arquivo, setArquivo] = useState();
-
-  const [inicio, setInicio] = useState();
-  const [fim, setFim] = useState();
-  const [diaria, setDiaria] = useState();
-  const [regras, setRegras] = useState();
-
 
   useEffect(() => {
     setNome(window.localStorage.getItem('nomeHost'))
@@ -68,10 +62,6 @@ const Conta = () => {
     buscarDados
   }, [])
 
-  useEffect(() => {
-    window.localStorage.setItem('diaria', diaria)
-  }, [diaria])
-
   const upload = (event) => {
     console.log(arquivo, "valor")
     setArquivo(event.target.value)
@@ -96,7 +86,9 @@ const Conta = () => {
     // window.localStorage.setItem('USERNAME', nome);
   }
 
+  const imagens = () => {
 
+  }
 
   function cadastroLocal() {
     setVerificado("Verificado por VerifyHost")
@@ -106,33 +98,11 @@ const Conta = () => {
     httpFetch.put(`/hosts?id=${id}`, cadastroUser)
       .then((res) => {
         console.log(res.data, "foi");
-        alert("Cadastro atualizado com sucesso!")
       }).catch((err) => {
         console.clear();
         console.log(err.response);
         console.log(cadastroUser);
       });
-  }
-
-  function cadastroAcomodacao() {
-
-    let host = { "idHostFamily": id }
-    let desc = "sou um bom host"
-    const cadastroAc = { host, desc, inicio, fim, diaria, regras };
-
-    httpFetch.post('/acomodacoes', cadastroAc)
-      .then((res) => {
-        console.log(res.data, "foi");
-        console.log(res, "RES");
-        alert("Acomodação atualizada com sucesso!")
-        console.log(cadastroAc, "cadastroAC")
-      }).catch((err) => {
-        console.clear();
-        console.log(err.response);
-        console.log(cadastroUser);
-      });
-
-      console.log(diaria)
   }
 
 
@@ -163,6 +133,7 @@ const Conta = () => {
             </div>
             <h2>Chat</h2>
           </div>
+      
           <div id="menu">
             <div className="icon-box">
               <img src={Perfil} alt="" />
@@ -229,55 +200,6 @@ const Conta = () => {
             </BaseButton>
           </S.ButtonWrapper>
 
-          <S.ButtonWrapper>
-            <S.Subtitle>Dados da acomodação:</S.Subtitle>
-            <BaseInput
-              onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Início disponibilidade'
-              type='text'
-              insert={setInicio}
-              value={inicio}
-            ></BaseInput>
-            <BaseInput
-              onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Fim disponibilidde'
-              type='text'
-              insert={setFim}
-              value={fim}
-            ></BaseInput>
-            <BaseInput
-              placeholder='Valor da diária'
-              type='text'
-              insert={setDiaria}
-              value={diaria}
-            ></BaseInput>
-            <BaseInput
-              placeholder='Regras'
-              type='text'
-              insert={setRegras}
-              value={regras}
-            ></BaseInput>
-              <BaseInput
-              onFocus={(focus) => focus.target.type = "file"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Foto da família'
-              insert={setRegras}
-              value={regras}
-            ></BaseInput>
-
-            <BaseButton
-              theme={colors.primary_blue}
-              size='279'
-              children='Enviar'
-              color='blue !important'
-              onClick={cadastroAcomodacao}
-            >
-            </BaseButton>
-          </S.ButtonWrapper>
-
-
 
           <div id="informacoes-conta">
             <div>
@@ -310,4 +232,4 @@ const Conta = () => {
   )
 }
 
-export default Conta;
+export default ReservasHost;
