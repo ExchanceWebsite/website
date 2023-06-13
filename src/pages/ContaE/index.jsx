@@ -115,7 +115,7 @@ const ContaE = () => {
 
           <div className='menu-aviao'>
             <div className="icon-box">
-              <img src={Aviao} alt="" />
+              <img src={Notificacao} alt="" />
             </div>
             <h2 onClick={() => navigate('/reservas')}>Reservas</h2>
           </div>
@@ -131,6 +131,12 @@ const ContaE = () => {
               <img src={Perfil} alt="" />
             </div>
             <h2>Conta</h2>
+          </div>
+          <div id="menu">
+            <div className="icon-box">
+              <img src={Aviao} alt="" />
+            </div>
+            <h2 onClick={() => navigate('/')}>Buscar</h2>
           </div>
         </div>
 

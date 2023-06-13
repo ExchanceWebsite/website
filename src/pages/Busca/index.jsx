@@ -12,6 +12,7 @@ import CarrouselFiltro from '../../components/SwiperBusca/SwiperBusca';
 
 const Busca = () => {
 
+  let entrada = 'oi'
   return (
     <>
       <S.FirstSection>
