@@ -23,6 +23,7 @@ const Reservas = () => {
   let acomod = diaria * 30
   let taxa = acomod * 0.15
   let total = acomod + taxa
+  let totalString = String.valueOf(total)
 
   function reservar() {
     navigate('/reservaConfirmada')
@@ -32,8 +33,7 @@ const Reservas = () => {
     "client-id": "AQTxV2Ltzo58sGVV7iITvMEHFFyMLuG3mOz5bf5QBtRvctteIPOwCr_JM5XRwxN7k1zVpJjKrKbSE3yi",
     currency: "BRL",
     intent: "capture"
-
-};
+  }
 
 
   return (
@@ -116,30 +116,30 @@ const Reservas = () => {
             <h2>R$ {total} </h2>
           </div>
 
+
           <div id="selecao-pagamento">
             <h1>Pagamento</h1>
-            <PayPalScriptProvider
-        options={initialOptions}
-      >
-        <PayPalButtons
-          createOrder={(actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: {total},
-                  },
-                },
-              ],
-            });
-          }}
-          onApprove={async (data, actions) => {
-            const details = await actions.order.capture();
-            const name = details.payer.name.given_name;
-            alert("Transaction completed by " + name);
-          }}
-        />
-      </PayPalScriptProvider>
+            <PayPalScriptProvider options={initialOptions}>
+            <PayPalButtons
+                createOrder={(data, actions) => {
+                    return actions.order.create({
+                        purchase_units: [
+                            {
+                                amount: {
+                                    value: "550.00",
+                                },
+                            },
+                        ],
+                    });
+                }}
+                onApprove={(data, actions) => {
+                    return actions.order.capture().then((details) => {
+                        const name = details.payer.name.given_name;
+                        alert(`Transaction completed by ${name}`);
+                    });
+                }}
+            />
+        </PayPalScriptProvider>
           </div>
         </div>
 
