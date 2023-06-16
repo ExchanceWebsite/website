@@ -7,35 +7,27 @@ import Chat from '../../assets/icons8-bate-papo-cheio-32.png'
 import ChatPink from '../../assets/icons8-bate-papo-cheio-42.png'
 import Notificacao from '../../assets/icons8-lembrete-de-compromissos-32.png'
 import Perfil from '../../assets/icons8-usuário-de-gênero-neutro-32.png'
-import Familia from '../../assets/img-opcao2.png' 
+import Familia from '../../assets/img-opcao1.png' 
 import Info from '../../assets/icons8-informações-42.png'
 import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 
-
-const Reservas = () => {
+const NoReserva = () => {
   const navigate = useNavigate();
-  const nomeUser = window.localStorage.getItem('nomeUser');
-
-  let diaria = window.localStorage.getItem('diaria')
-  let acomod = diaria * 30
-  let taxa = acomod * 0.15
-  let total = acomod + taxa
-
-  function reservar() {
-    navigate('/reservaConfirmada')
-  }
+  const nomeUser = window.localStorage.getItem('nome_user');
 
   const initialOptions = {
     "client-id": "AQTxV2Ltzo58sGVV7iITvMEHFFyMLuG3mOz5bf5QBtRvctteIPOwCr_JM5XRwxN7k1zVpJjKrKbSE3yi",
     currency: "BRL",
     intent: "capture"
+    
+    };
 
-};
-
-
+  function reservar() {
+    navigate('/reservaConfirmada')
+  }
   return (
     <>
       <div id="header">
@@ -63,7 +55,12 @@ const Reservas = () => {
             </div>
             <h2>Chat</h2>
           </div>
-    
+          <div id="menu">
+            <div className="icon-box">
+              <img src={Notificacao} alt="" />
+            </div>
+            <h2>Notificações</h2>
+          </div>
           <div id="menu">
             <div className="icon-box">
               <img src={Perfil} alt="" />
@@ -80,17 +77,18 @@ const Reservas = () => {
               </div>
             </div>
             <div id="endereco">
-              <p id="endereco-p">Rua Lorem Ipsum Sit, 3000</p>
+              <p id="endereco-p"></p>
               <div id="divisoria"></div>
-              <p id='nome-familia'>Família {window.localStorage.getItem('nomeClicado')}</p>
+              <p id='nome-familia'>Você ainda não tem nenhuma reserva</p>
+
               <div id="icon-endereco">
                 <div><img src={ChatPink} alt="" /></div>
                 <div><img src={Info} alt="" /></div>
               </div>
 
               <div id="data">
-                <p id='entrada-saida'>Entrada</p><input value='2023-06-13' type="date" />
-                <p id='entrada-saida'>Sáida</p><input value='2023-07-13' type="date" />
+                <p id='entrada-saida'></p><input type="date" />
+                <p id='entrada-saida'></p><input type="date" />
               </div>
 
               <div id="divisoria"></div>
@@ -98,56 +96,12 @@ const Reservas = () => {
 
           </div>
         </div>
-
-        <div id="card-pagamento">
-          <div id="informacoes-pagamento">
-            <h2>Taxa de acomodação</h2>
-            <h2>{acomod}</h2>
-          </div>
-          <div id="informacoes-pagamento">
-            <h2>Taxa de serviço Exchance</h2>
-            <h2>{taxa}</h2>
-          </div>
-
-          <div id="divisoria"></div>
-
-          <div id="total">
-            <h2>Total</h2>
-            <h2>R$ {total} </h2>
-          </div>
-
-          <div id="selecao-pagamento">
-            <h1>Pagamento</h1>
-            <PayPalScriptProvider
-        options={initialOptions}
-      >
-        <PayPalButtons
-          createOrder={(actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: {total},
-                  },
-                },
-              ],
-            });
-          }}
-          onApprove={async (data, actions) => {
-            const details = await actions.order.capture();
-            const name = details.payer.name.given_name;
-            alert("Transaction completed by " + name);
-          }}
-        />
-      </PayPalScriptProvider>
-          </div>
         </div>
 
-        <button onClick={reservar} id="reserva">Confirmar reserva</button>
-      </div>
+        
     </>
 
   )
 }
 
-export default Reservas
+export default NoReserva
