@@ -5,7 +5,7 @@ const questions = [
     faqs: [
     {
       title: `Como é se hospedar com uma Host Family no exterior?`,
-      answer: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. 
+      answer: `Você irá vivenciar o dia a dia da família extrangeira. 
 
         The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De
         `
