@@ -59,4 +59,5 @@
 
 .swiper-slide {
   width: 1200px !important;
+  height: auto;
 }

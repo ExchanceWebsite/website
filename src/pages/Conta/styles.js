@@ -83,6 +83,7 @@ export const ButtonWrapper = styled.div`
   margin-bottom: 60px;
   width: fit-content;
   border-radius: 5px;
+  margin-top: 100px;
 `
 export const Select = styled.select`
   background-color: transparent;

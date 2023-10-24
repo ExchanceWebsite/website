@@ -13,6 +13,7 @@ import BaseButton from '../../components/BaseButton';
 import colors from '../../styles/theme';
 import httpFetch from '../../hooks/httpFetch';
 import * as S from './styles';
+import VerticalHeader from '../../components/VerticalHeader';
 
 
 const Conta = () => {
@@ -132,7 +133,7 @@ const Conta = () => {
         console.log(cadastroUser);
       });
 
-      console.log(diaria)
+    console.log(diaria)
   }
 
 
@@ -149,27 +150,7 @@ const Conta = () => {
         <h2 id="frase">Olá, {window.localStorage.getItem("nome")}</h2>
       </div>
       <div id="corpo">
-        <div id="header-vertical">
-
-          <div className='menu-aviao'>
-            <div className="icon-box">
-              <img src={Aviao} alt="" />
-            </div>
-            <h2 onClick={() => navigate('/reservasHost')}>Reservas</h2>
-          </div>
-          <div id="menu">
-            <div className="icon-box">
-              <img src={Chat} alt="" />
-            </div>
-            <h2>Chat</h2>
-          </div>
-          <div id="menu">
-            <div className="icon-box">
-              <img src={Perfil} alt="" />
-            </div>
-            <h2>Conta</h2>
-          </div>
-        </div>
+        <VerticalHeader />
 
         <S.Container>
           <S.ButtonWrapper>
@@ -228,57 +209,6 @@ const Conta = () => {
               onClick={cadastroLocal}>
             </BaseButton>
           </S.ButtonWrapper>
-
-          <S.ButtonWrapper>
-            <S.Subtitle>Dados da acomodação:</S.Subtitle>
-            <BaseInput
-              onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Início disponibilidade'
-              type='text'
-              insert={setInicio}
-              value={inicio}
-            ></BaseInput>
-            <BaseInput
-              onFocus={(focus) => focus.target.type = "date"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Fim disponibilidde'
-              type='text'
-              insert={setFim}
-              value={fim}
-            ></BaseInput>
-            <BaseInput
-              placeholder='Valor da diária'
-              type='text'
-              insert={setDiaria}
-              value={diaria}
-            ></BaseInput>
-            <BaseInput
-              placeholder='Regras'
-              type='text'
-              insert={setRegras}
-              value={regras}
-            ></BaseInput>
-              <BaseInput
-              onFocus={(focus) => focus.target.type = "file"}
-              onBlur={(blur) => blur.target.value ? null : blur.target.type = "text"}
-              placeholder='Foto da família'
-              insert={setRegras}
-              value={regras}
-            ></BaseInput>
-
-            <BaseButton
-              theme={colors.primary_blue}
-              size='279'
-              children='Enviar'
-              color='blue !important'
-              onClick={cadastroAcomodacao}
-            >
-            </BaseButton>
-          </S.ButtonWrapper>
-
-
-
           <div id="informacoes-conta">
             <div>
               <h2>Identidade frente</h2>
@@ -301,8 +231,6 @@ const Conta = () => {
           </div>
 
           <button>Enviar arquivo</button>
-
-          <button id="salvar-conta">Salvar</button>
         </S.Container>
       </div>
     </>

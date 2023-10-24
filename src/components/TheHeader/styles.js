@@ -28,6 +28,14 @@ export const Link = styled.a`
   font-weight: 400;
   letter-spacing: 0.02em;
 `
+export const LinkUser = styled.a`
+  color: white;
+  font-size: 17px;
+  display: flex;
+  width: 90px;
+  margin-top: 18px;
+  
+`
 export const Container = styled(BaseContainer)`
   display: flex !important;
   justify-content: space-between;

@@ -5,7 +5,13 @@
   display: flex;
   align-items: center;
 }
-
+.swiper-container-busca {
+  height: 70vh;
+  padding-top:  60px;
+  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
 .slide-item {
   margin: 10px;
   /* background-color: black; */

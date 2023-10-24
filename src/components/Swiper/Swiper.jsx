@@ -34,7 +34,7 @@ export default class Carroussel extends React.Component {
         <SwiperSlide className="slide-item">
           <img src={src4} alt="familia3" />
         </SwiperSlide>
-        </Swiper>
+      </Swiper>
     )
   }
 }
