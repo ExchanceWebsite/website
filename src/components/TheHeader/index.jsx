@@ -14,7 +14,7 @@ var currentHome = Boolean
 
 const Logo = () => {
   const location = useLocation()
-  location.pathname === '/'  ? currentHome = true : currentHome = false
+  location.pathname === '/' ? currentHome = true : currentHome = false
 
   const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
@@ -46,7 +46,7 @@ const Logo = () => {
 
 const Button = ({ children }) => {
   const location = useLocation()
-  location.pathname === '/'  ? currentHome = true : currentHome = false
+  location.pathname === '/' ? currentHome = true : currentHome = false
 
   const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
@@ -82,7 +82,7 @@ const Button = ({ children }) => {
 
 const Wrapper = ({ children }) => {
   const location = useLocation()
-  location.pathname === '/'  ? currentHome = true : currentHome = false
+  location.pathname === '/' ? currentHome = true : currentHome = false
 
   const [blueHeader, setBlueHeader] = useState(currentHome ? false : true)
   const changeHeader = () => {
@@ -119,6 +119,7 @@ const Wrapper = ({ children }) => {
 }
 
 const TheHeader = () => {
+  const nome = localStorage.getItem('nomeHost');
   return (
     <Wrapper>
       <S.Container>
@@ -132,15 +133,24 @@ const TheHeader = () => {
           <Link to='/busca'>
             <S.Link>Busca</S.Link>
           </Link>
-          <Link to='/login'>
-            <S.Link>Login</S.Link>
-          </Link>
+          {!nome && (
+            <>
+              <Link to='/login'>
+                <S.Link>Login</S.Link>
+              </Link>
+            </>
+          )}
         </S.Navbar>
-        <Link to='/cadastro'>
-          <Button
-            children={<S.Link>Cadastre-se</S.Link>}
-          />
-        </Link>
+        {nome ? (
+          <Link to='/conta'>
+            <S.LinkUser>Olá, {nome}</S.LinkUser>
+          </Link>
+        ) : (
+          <Link to='/cadastro'>
+            <Button
+              children={<S.Link>Cadastre-se</S.Link>}
+            />
+          </Link>)}
       </S.Container>
     </Wrapper >
   )

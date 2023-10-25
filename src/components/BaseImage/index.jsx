@@ -1,10 +1,11 @@
 import React from 'react';
 import * as S from './styles';
 
-const BaseImage = ({ src, size, cover, ...props }) => {
+const BaseImage = ({ onClick, src, size, cover, ...props }) => {
   props
   return (
     <S.StyledImage
+      onClick={onClick}
       src={src}
       style={{
         width: size + 'px',

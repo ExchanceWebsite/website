@@ -17,7 +17,11 @@ import CarrousselBusca from '../../components/SwiperBusca/SwiperBusca';
 export const ContentBusca = ({ busca }) => {
   return (
     busca ? (
-      <CarrousselBusca />
+      <S.Container>
+
+        <CarrousselBusca />
+      </S.Container >
+
     ) : (
       <S.Container>
         <BaseImage size='800' src={Mapa} />
@@ -70,4 +74,3 @@ export const BaseSearch = ({ filtrar }) => {
     </S.Wrapper>
   )
 }
-

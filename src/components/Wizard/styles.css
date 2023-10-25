@@ -1,0 +1,109 @@
+.progress-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .step {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .step.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .step:not(:last-child)::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background-color: #007bff;
+  }
+  .btn-next{
+    float: right;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .btn-end{
+    float: center;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .container-step{
+    display: flex;
+    flex-direction: column;
+  }
+  .container-step input{
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    height: 40px;
+
+  }
+  .container-step select{
+    width: 300px;
+    margin: 5px;
+    padding: 3px;
+    height: 40px;
+  }
+
+  .input-dias{
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .input-dias span{
+    cursor: pointer;
+    border-left: 1px solid black;
+    height: 100%;
+    padding: 10px;
+    
+  } 
+
+  .input-dias-container{
+    border: 1px solid black;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    padding: 10px, 100px;
+    padding-left: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+  } 
+
+  .container-host-family{
+    display: flex;
+  }
+  .container-host-family-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .container-host-family-result{
+    width: 40%;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  .add-btn{
+    background: #0861A6;
+    margin: 20px;
+  }
+
+  .btn-end-container{
+    display: flex;  
+    justify-content: center;
+  }

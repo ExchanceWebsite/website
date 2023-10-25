@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 
-const BaseCard = ({ img, alt, title, text }) => {
+const BaseCard = ({ img, alt, title, text, onClick }) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper onClick={onClick}>
       <S.CardImg src={img} alt={alt} />
       <S.TextWrapper>
         <h2>{title}</h2>
