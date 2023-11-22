@@ -20,7 +20,7 @@ const Cadastro = () => {
   const [cpf, setCpf] = useState();
   const [nascimento, setNascimento] = useState();
   // const [idade, setIdade] = useState();
-  const [celular, setCelular] = useState();
+  const [telefone, setTelefone] = useState();
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [confirmaSenha, setConfirmaSenha] = useState();
@@ -50,7 +50,7 @@ const Cadastro = () => {
 
   function cadastro() {
     let descricao = "x"
-    const cadastroUser = { nome, idade, descricao, email, senha, celular, cpf };
+    const cadastroUser = { nome, idade, descricao, email, senha, telefone, cpf };
 
     httpFetch.post('/estudantes', cadastroUser)
       .then((res) => {
@@ -67,7 +67,7 @@ const Cadastro = () => {
   }
 
   function cadastroHost() {
-    const cadastroUser = { nome, email, senha, celular };
+    const cadastroUser = { nome, email, senha, telefone };
 
     httpFetch.post('/hosts', cadastroUser)
       .then((res) => {
@@ -147,7 +147,6 @@ const Cadastro = () => {
               ></BaseInput>
               <BaseInput
                 placeholder='CPF'
-                mask="000.000.000-00"
                 type='text'
                 size='137px'
                 insert={setCpf}
@@ -165,9 +164,9 @@ const Cadastro = () => {
               insert={setNascimento}
             ></BaseInput>
             <BaseInput
-              placeholder='Celular'
+              placeholder='telefone'
               type='text'
-              insert={setCelular}
+              insert={setTelefone}
             ></BaseInput>
             <S.Subtitle>Crie seu login</S.Subtitle>
             <BaseInput
