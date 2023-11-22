@@ -5,14 +5,16 @@ import Voltar from '../../assets/seta-esquerda.png'
 import Perfil from '../../assets/perfil.png'
 import Familia from '../../assets/img-opcao1.png'
 import httpFetch from '../../hooks/httpFetch';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Chat({ socket }) {
 
   const messageRef = useRef()
   const [messageList, setMessageList] = useState([])
-  const [userName, setUserName] =useState()
-  const [hostName, setHostName] =useState()
+  const [userName, setUserName] = useState()
+  const [hostName, setHostName] = useState()
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUserName(window.localStorage.getItem('nomeUser'))
@@ -43,7 +45,7 @@ export default function Chat({ socket }) {
     <S.Container>
       <S.ContainerChat>
         <S.NavBarFamilia>
-          <S.Voltar>
+          <S.Voltar onClick={() => navigate('/conta')}>
             <S.ImgVoltar src={Voltar}></S.ImgVoltar>
           </S.Voltar>
           <S.NomeFamilia>

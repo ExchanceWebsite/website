@@ -1,6 +1,4 @@
 import styled, { withTheme } from 'styled-components';
-import bg from '../../assets/home-bg.png'
-import bg2 from '../../assets/home2-bg.png'
 import bg3 from '../../assets/home3-bg.png'
 import colors from '../../styles/theme';
 import BaseContainer from '../../components/BaseContainer';
@@ -74,8 +72,8 @@ export const Container = styled(BaseContainer)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 50px;
-    margin-top: 40px;
+    margin-left: 300px;
+    margin-top: 100px;
 `
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -101,4 +99,9 @@ export const Subtitle = styled.h2`
   font-weight: 500;
   /* text-align: ; */
 `
-
+export const ButtonAddWizard = styled.button`
+  background-color: #0861A6;
+  margin-top: 20px;
+  align-self: flex-end;
+  cursor: pointer;
+`

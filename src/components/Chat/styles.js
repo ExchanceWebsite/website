@@ -31,6 +31,7 @@ export const Voltar = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 `
 
 export const ImgVoltar = styled.img`
@@ -49,7 +50,7 @@ export const ImgPerfilFamilia = styled.img`
     width: 24%;
 `
 
-export const NomeFamiliaText = styled.p `
+export const NomeFamiliaText = styled.p`
     width: 68%;
     color: white;
     font-weight: 500;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import bg from '../../assets/home-bg.png'
 import bg2 from '../../assets/home2-bg.png'
 import bg3 from '../../assets/home3-bg.png'
 import colors from '../../styles/theme';
@@ -100,7 +99,7 @@ export const Answer = styled.h3`
 `
 export const Content3 = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   /* justify-content: center; */
 `;
@@ -113,19 +112,31 @@ export const Container = styled(BaseContainer)`
     flex-direction: column;
     height: 100vh;
     align-items: center;
-    justify-content: center;
     /* max-width: 1700px */
     /* gap: 50px; */
-
     img {
       margin: 0 auto
     }
-`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    `
 
 export const Descricao = styled.h3`
  font-size: 14px;
  font-weight: 400;
  max-width: 800px;
  margin-top: 20px;
+`
 
+export const ContainerDescricao = styled.div`
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    padding: 40px;
+`
+export const Endereco = styled.p`
+font-weight: 600;
+margin-top: 40px;
 `

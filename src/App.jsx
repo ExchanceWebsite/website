@@ -17,6 +17,7 @@ import ContaE from './pages/ContaE';
 import CadastroAcomodacao from './pages/CadastroAcomodacao';
 import ReservasConf from './pages/ReservasConf';
 import ReservasHost from './pages/ReservasHost';
+import Notification from './pages/Notificacao';
 
 function App() {
   // const [chatVisibility, setChatVisibility] = useState(false)
@@ -37,18 +38,19 @@ function App() {
           <GlobalStyles />
         </div>
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/busca' element={<Busca/>}></Route>
-          <Route path='/login' element={<Login/>}></Route>
-          <Route path='/cadastro' element={<Cadastro/>}></Route>
-          <Route path='/chatPage' element={<ChatPage/>}></Route>
-          <Route path='/detalhes' element={<Detalhes/>}></Route>
-          <Route path='/reservas' element={<Reservas/>}></Route>
-          <Route path='/reservaConfirmada' element={<ReservasConf/>}></Route>
-          <Route path='/reservasHost' element={<ReservasHost/>}></Route>
-          <Route path='/conta' element={<Conta/>}></Route>
-          <Route path='/contaE' element={<ContaE/>}></Route>
-          <Route path='/cadastroAcomodacao' element={<CadastroAcomodacao/>}></Route>
+          <Route path='/' element={<Home />} />
+          <Route path='/busca' element={<Busca />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/cadastro' element={<Cadastro />}></Route>
+          <Route path='/chatPage' element={<ChatPage />}></Route>
+          <Route path='/detalhes' element={<Detalhes />}></Route>
+          <Route path='/reservas' element={<Reservas />}></Route>
+          <Route path='/reservaConfirmada' element={<ReservasConf />}></Route>
+          <Route path='/reservasHost' element={<ReservasHost />}></Route>
+          <Route path='/conta' element={<Conta />}></Route>
+          <Route path='/contaE' element={<ContaE />}></Route>
+          <Route path='/cadastroAcomodacao' element={<CadastroAcomodacao />}></Route>
+          <Route path='/notificacao' element={<Notification />}></Route>
           <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </Router>

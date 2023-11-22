@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.14.14",
+    "@mui/material": "^5.14.14",
     "@paypal/react-paypal-js": "^8.0.0",
     "axios": "^1.4.0",
     "httpfetch": "^2.0.0",
@@ -16,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-imask": "^6.6.1",
     "react-router-dom": "^6.10.0",
-    "socket.io": "^4.7.2",
+    "react-use-wizard": "^2.2.3",
+    "socket.io": "^4.6.2",
     "socket.io-client": "^4.6.1",
     "styled-components": "^5.3.9",
     "swiper": "^9.2.4"
