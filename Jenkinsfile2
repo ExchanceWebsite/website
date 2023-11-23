@@ -5,7 +5,7 @@ pipeline {
         stage('Etapa 1') {
             steps {
                 // Adicione os comandos ou scripts que deseja executar nesta etapa
-                echo 'Executando a Etapa 1'
+                echo 'Executando a Etapa building'
             }
         }
 
