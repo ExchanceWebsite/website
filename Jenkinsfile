@@ -20,8 +20,7 @@ pipeline {
         stage('Subindo o site') {
             steps {
                 script {
-                    sh"sudo ssh -i /home/ubuntu/key-2210.pem ${REMOTE_USER}@${REMOTE_HOST} 'cd /home/ubuntu/website/ && npm run dev'"
-                    sh"sudo ssh -i /home/ubuntu/key-2210.pem ${REMOTE_USER}@${REMOTE_HOST} 'cd /home/ubuntu/chatBack/ && npm run dev'"
+                    sh"sudo ssh -i /home/ubuntu/key-2210.pem ${REMOTE_USER}@${REMOTE_HOST} 'cd /home/ubuntu/chatBack/ && npm run dev && cd /home/ubuntu/website/ && npm run dev''"
                 }
             }
         }
