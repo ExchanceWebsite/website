@@ -13,15 +13,15 @@ const CadastroAcomodacao = () => {
   const [pais, setPais] = useState();
   const [endereco, setEndereco] = useState();
   const [cep, setCep] = useState();
+  const [cidade, setCidade] = useState();
 
   const nomeHost = window.localStorage.getItem('nome_host');
   const idHost = window.localStorage.getItem('id_host');
 
-
   function cadastroLocal() {
-    const cadastroUser = { idHost, pais, endereco, cep };
+    const cadastroUser = { pais, cidade, endereco, cep };
 
-    httpFetch.post('/hosts', cadastroUser)
+    httpFetch.post('/localidade', cadastroUser)
       .then((res) => {
         console.log(res.data);
       }).catch((err) => {
@@ -75,9 +75,14 @@ const CadastroAcomodacao = () => {
             insert={setPais}
           ></BaseInput>
           <BaseInput
-            placeholder='Cidade'
+            placeholder='Logradouro'
             type='text'
             insert={setEndereco}
+          ></BaseInput>
+          <BaseInput
+            placeholder='Cidade'
+            type='text'
+            insert={setCidade}
           ></BaseInput>
           <BaseInput
             placeholder='CEP'

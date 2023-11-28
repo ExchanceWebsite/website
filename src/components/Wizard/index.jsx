@@ -9,6 +9,7 @@ import './styles.css'
 import httpFetch from '../../hooks/httpFetch';
 
 function Wizard() {
+    const [idHost, setIdHost] = useState();
     const [step, setStep] = useState(1);
     const [diasMinimos, setDiasMinimos] = useState(1);
     const [diasMaximos, setDiasMaximos] = useState(1);
@@ -73,6 +74,8 @@ function Wizard() {
         window.localStorage.setItem('frente', frente)
         window.localStorage.setItem('verso', verso)
         window.localStorage.setItem('selfie', selfie)
+        window.localStorage.getItem('selfie', selfie)
+
 
         const uploadUser = { arquivo };
         event.target.parentNode.style.backgroundImage = `url(${event.target.value})`
@@ -85,12 +88,14 @@ function Wizard() {
             });
     }
     const addAcomodacao = () => {
+
+        setIdHost(window.localStorage.getItem('id_host'));
         const data = {
-            "HostFamily": {
-                "idHostFamily": 1,
-                "nome": "",
-                "localidade": null
+            "host": {
+                "idHostFamily": idHost
             },
+            
+            "reservado": false,
             "descricao": "Teste 123",
             "inicioDisponibilidade": "2023-10-10",
             "fimDisponibilidade": new Date(),

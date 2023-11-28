@@ -26,24 +26,49 @@ const Login = () => {
 
   // setEstudante(true)
 
+  function buscaIdHost(nome) {
+    httpFetch.get(`/hosts/id?emai=${email}&nome=${nome}`)
+      .then((res) => {
+        window.localStorage.setItem('id_host', res.data);
+      }).catch((err) => {
+        console.log(err.response.status);
+        console.log(email);
+        console.log(err);
+        console.log("api", res.data);
+      });
+  }
+
+  function buscaIdEst(nome) {
+    httpFetch.get(`/estudantes/id?emai=${email}&nome=${nome}`)
+      .then((res) => {
+        window.localStorage.setItem('id_estudante', res.data);
+      }).catch((err) => {
+        console.log(err.response.status);
+        console.log(email);
+        console.log(err);
+        console.log("api", res.data);
+      });
+  }
+
   function login() {
 
     const loginUser = { email, senha };
     httpFetch.post('/estudantes/login', loginUser)
       .then((res) => {
-        console.log(res.data);
         // estudante ? navigate("/reservas") : navigate("/cadastroAcomodacao")
         navigate("/contaE")
         // window.localStorage.clear();
-        window.localStorage.setItem('id_user', res.data.idEstudante);
         window.localStorage.setItem('nomeUser', res.data.nome);
         window.localStorage.setItem('emailUser', res.data.email);
+        buscaIdEst(res.data.nome)
+
       }).catch((err) => {
         console.clear();
         console.log(err.response.status);
         console.log(email);
         console.log(senha);
         console.log(err);
+        console.log("api", res.data);
       });
 
 
@@ -61,21 +86,20 @@ const Login = () => {
     const loginUserHost = { email, senha };
     httpFetch.post('/hosts/login', loginUserHost)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         navigate("/conta")
         // window.localStorage.clear();
-        window.localStorage.setItem('id_host', res.data.idHostFamily);
+        console.log('CONSOLE', res.data.idHostFamily)
         window.localStorage.setItem('nome', res.data.nome);
         window.localStorage.setItem('nomeHost', res.data.nome);
         window.localStorage.setItem('emailHost', res.data.email);
+        buscaIdHost(res.data.nome)
       }).catch((err) => {
-        console.clear();
         console.log(err.response.status);
         console.log(email);
         console.log(senha);
         console.log(err);
         console.log(tipo.value, "tipo");
-
       });
   }
 
