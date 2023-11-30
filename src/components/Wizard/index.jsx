@@ -11,14 +11,17 @@ import httpFetch from '../../hooks/httpFetch';
 function Wizard() {
     const [idHost, setIdHost] = useState();
     const [step, setStep] = useState(1);
-    const [diasMinimos, setDiasMinimos] = useState(1);
-    const [diasMaximos, setDiasMaximos] = useState(1);
+    const [dataInicio, setDataInicio] = useState(1);
+    const [dataFim, setDataFim] = useState(1);
     const [names, setNames] = useState([]);
     const [inputName, setinputName] = useState('');
     const [frente, setFrente] = useState();
     const [verso, setVerso] = useState();
     const [selfie, setSelfie] = useState();
     const [arquivo, setArquivo] = useState();
+    const [descricao, setDescricao] = useState();
+    const [diaria, setDiaria] = useState();
+    const [regras, setRegras] = useState();
     const steps = ['1', '2', '3', '4', '5', '6', '7'];
 
     const navigate = useNavigate();
@@ -94,13 +97,15 @@ function Wizard() {
             "host": {
                 "idHostFamily": idHost
             },
-            
+            "localidade": {
+
+            },
             "reservado": false,
-            "descricao": "Teste 123",
-            "inicioDisponibilidade": "2023-10-10",
-            "fimDisponibilidade": new Date(),
-            "valorDiaria": 100,
-            "regras": "da loja"
+            "descricao": descricao,
+            "inicioDisponibilidade": dataInicio,
+            "fimDisponibilidade": dataFim,
+            "valorDiaria": diaria,
+            "regras": regras
         }
         httpFetch.post("/acomodacoes", data);
         navigate('/conta');
@@ -177,15 +182,15 @@ function Wizard() {
                     <div className='input-dias'>
                         <p>Dias:</p>
                         <div className='input-dias-container'>
-                            {diasMinimos} Dias Mínimos
+                            {diasMinimos} Data Início
                             <div>
-                                <span onClick={() => setDiasMinimos(diasMinimos + 1)}>+</span> <span onClick={() => setDiasMinimos(diasMinimos - 1)}>-</span>
+                                <input type='date' onBlur={() => setDataInicio(diaInicio + 1)}/>
                             </div>
                         </div>
                         <div className='input-dias-container'>
-                            {diasMaximos} Dias Máximos
+                            {diasMaximos} Data Final
                             <div>
-                                <span onClick={() => setDiasMaximos(diasMaximos + 1)}>+</span> <span onClick={() => setDiasMaximos(diasMaximos - 1)}>-</span>
+                                <input type='date' onBlur={() => setDataFim(diaFim + 1)}/>
                             </div>
                         </div>
                     </div>
@@ -199,6 +204,7 @@ function Wizard() {
             {step === 4 && (
                 <div className='container-step'>
                     <h2>Acomodação</h2>
+                    <input onClick={() => setDescricao} type='text' />
                     <label for="quarto">Tipo de quarto:</label>
                     <select id="quarto" name="quartos">
                         <option value="suite">Suíte</option>
@@ -211,7 +217,7 @@ function Wizard() {
                         <option value="compartilhado">Compartilhado</option>
                     </select>
                     <label>Preço acomodação</label>
-                    <input type='text' />
+                    <input onClick={() => setDiaria} type='text' />
                     <div>
                         <button onClick={handlePrevious}>Voltar</button>
                         <button className='btn-next' onClick={handleNext}>Próximo</button>
@@ -221,16 +227,7 @@ function Wizard() {
             {step === 5 && (
                 <div className='container-step'>
                     <h2>Regras</h2>
-                    <label for="fumar">permite fumar:</label>
-                    <select id="fumar" name="fumar">
-                        <option value="s">sim</option>
-                        <option value="n">Não</option>
-                    </select>
-                    <label for="pets">Permite pets:</label>
-                    <select id="pets" name="pets">
-                        <option value="s">Sim</option>
-                        <option value="n">Não</option>
-                    </select>
+                    <input onBlur={() => setRegras}></input>
                     <div>
                         <button onClick={handlePrevious}>Voltar</button>
                         <button className='btn-next' onClick={handleNext}>Próximo</button>
