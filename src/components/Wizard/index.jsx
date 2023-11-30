@@ -98,7 +98,7 @@ function Wizard() {
                 "idHostFamily": idHost
             },
             "localidade": {
-
+                "idLocalidade": 1
             },
             "reservado": false,
             "descricao": descricao,
@@ -182,13 +182,13 @@ function Wizard() {
                     <div className='input-dias'>
                         <p>Dias:</p>
                         <div className='input-dias-container'>
-                            {diasMinimos} Data Início
+                            Data Início
                             <div>
                                 <input type='date' onBlur={() => setDataInicio(diaInicio + 1)}/>
                             </div>
                         </div>
                         <div className='input-dias-container'>
-                            {diasMaximos} Data Final
+                            Data Final
                             <div>
                                 <input type='date' onBlur={() => setDataFim(diaFim + 1)}/>
                             </div>
