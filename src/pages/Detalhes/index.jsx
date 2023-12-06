@@ -34,17 +34,13 @@ const Detalhes = () => {
         <S.Container>
           <div>
             <S.Title>
-              Família {window.localStorage.getItem('nomeClicado')}
+              Família {window.localStorage.getItem('nome')}
             </S.Title>
 
             <BaseImage
               src={src2}
               size='600'
             />
-            <S.Descricao>
-              {descClicada}
-            </S.Descricao>
-
             <S.Content2>
 
               <S.Content3>
@@ -70,11 +66,9 @@ const Detalhes = () => {
             </S.Content2>
           </div>
           <S.ContainerDescricao>
-            <p>"Esta casa é um verdadeiro refúgio de tranquilidade e beleza, aninhada no coração de uma exuberante floresta.
-              Ela se destaca por sua arquitetura única, que combina elementos modernos e rústicos de forma harmoniosa. O exterior da
-              casa é revestido com pedras naturais e madeira envelhecida, criando uma sensação acolhedora e atemporal.</p>
+            <p>{window.localStorage.getItem('1desc')}</p>
             <S.Endereco>
-              Brasil, São Paulo
+            {window.localStorage.getItem('1adress')} , {window.localStorage.getItem('1cep')}
             </S.Endereco>
           </S.ContainerDescricao>
         </S.Container>

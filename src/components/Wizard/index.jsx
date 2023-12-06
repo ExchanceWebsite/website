@@ -10,6 +10,7 @@ import httpFetch from '../../hooks/httpFetch';
 
 function Wizard() {
     const [idHost, setIdHost] = useState();
+    const [idLocal, setIdLocal] = useState();
     const [step, setStep] = useState(1);
     const [dataInicio, setDataInicio] = useState(1);
     const [dataFim, setDataFim] = useState(1);
@@ -34,33 +35,33 @@ function Wizard() {
         setStep(step - 1);
     };
 
-    const [formData, setFormData] = useState({
-        cep: '',
+    const [localidade, setlocalidade] = useState({
         pais: '',
         cidade: '',
         endereco: '',
+        cep: '',
     });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
+        setlocalidade({
+            ...localidade,
             [name]: value,
         });
     };
 
     const handleSearchCEP = () => {
-        setFormData({
-            ...formData,
+        setlocalidade({
+            ...localidade,
             pais: '',
             cidade: '',
             endereco: '',
         });
-        axios.get(`https://viacep.com.br/ws/${formData.cep}/json/`)
+        axios.get(`https://viacep.com.br/ws/${localidade.cep}/json/`)
             .then((response) => {
                 const data = response.data;
-                setFormData({
-                    ...formData,
+                setlocalidade({
+                    ...localidade,
                     pais: 'Brasil',
                     cidade: data.localidade,
                     endereco: data.logradouro,
@@ -91,25 +92,47 @@ function Wizard() {
             });
     }
     const addAcomodacao = () => {
-
         setIdHost(window.localStorage.getItem('id_host'));
-        const data = {
-            "host": {
-                "idHostFamily": idHost
-            },
-            "localidade": {
-                "idLocalidade": 1
-            },
-            "reservado": false,
-            "descricao": descricao,
-            "inicioDisponibilidade": dataInicio,
-            "fimDisponibilidade": dataFim,
-            "valorDiaria": diaria,
-            "regras": regras
+        setIdLocal(window.localStorage.getItem('id_local'));
+        const host = {idHostFamily: window.localStorage.getItem('id_host')}
+        const localidade = {idLocalidade: 2}
+        
+
+        const acomodacoa = {
+            host,
+            localidade,
+            reservado: false,
+            descricao: `${descricao}`,
+            inicioDisponibilidade: `${dataInicio}`,
+            fimDisponibilidade: `${dataFim}`,
+            valorDiaria: `${diaria}`,
+            regras: `${regras}`
         }
-        httpFetch.post("/acomodacoes", data);
-        navigate('/conta');
+
+
+       /* "host": {
+            "idHostFamily": idHost
+        },
+        "localidade": {
+            "idLocalidade": 1
+        },
+        "reservado": false,
+        "descricao": descricao,
+        "inicioDisponibilidade": dataInicio,
+        "fimDisponibilidade": dataFim,
+        "valorDiaria": diaria,
+        "regras": regras*/
+        
+        httpFetch.post("/acomodacoes", acomodacoa)
+        .then((res) => {
+            console.log(res.acomodacoa);
+            window.localStorage.setItem('diaria', acomodacoa.diaria)
+            navigate('/conta');
+          }).catch((err) => {
+            console.log(err.response);
+          });
     }
+
     return (
         <div>
             <div className="progress-bar">
@@ -140,7 +163,7 @@ function Wizard() {
                         type="text"
                         name="cep"
                         placeholder="CEP"
-                        value={formData.cep}
+                        value={localidade.cep}
                         onChange={handleInputChange}
                         onBlur={handleSearchCEP}
                     />
@@ -149,14 +172,14 @@ function Wizard() {
                             type="text"
                             name="pais"
                             placeholder="Pais"
-                            value={formData.pais}
+                            value={localidade.pais}
                             onChange={handleInputChange}
                         />
                         <input
                             type="text"
                             name="cidade"
                             placeholder="Cidade"
-                            value={formData.cidade}
+                            value={localidade.cidade}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -164,7 +187,7 @@ function Wizard() {
                         type="text"
                         name="endereco"
                         placeholder="Endereço"
-                        value={formData.endereco}
+                        value={localidade.endereco}
                         onChange={handleInputChange}
                         style={{ width: '600px' }}
                     />
@@ -184,14 +207,22 @@ function Wizard() {
                         <div className='input-dias-container'>
                             Data Início
                             <div>
-                                <input type='date' onBlur={() => setDataInicio(diaInicio + 1)}/>
+                            <BaseInput
+                                value={dataInicio}
+                                placeholder='Data Início'
+                                type='date'
+                                insert={setDataInicio}
+                            ></BaseInput>
                             </div>
                         </div>
                         <div className='input-dias-container'>
                             Data Final
-                            <div>
-                                <input type='date' onBlur={() => setDataFim(diaFim + 1)}/>
-                            </div>
+                            <BaseInput
+                                value={dataFim}
+                                placeholder='Data Final'
+                                type='date'
+                                insert={setDataFim}
+                            ></BaseInput>
                         </div>
                     </div>
                     <div>
@@ -204,7 +235,12 @@ function Wizard() {
             {step === 4 && (
                 <div className='container-step'>
                     <h2>Acomodação</h2>
-                    <input onClick={() => setDescricao} type='text' />
+                            <BaseInput
+                                value={descricao}
+                                placeholder='Descrição'
+                                type='text'
+                                insert={setDescricao}
+                            ></BaseInput>
                     <label for="quarto">Tipo de quarto:</label>
                     <select id="quarto" name="quartos">
                         <option value="suite">Suíte</option>
@@ -217,7 +253,12 @@ function Wizard() {
                         <option value="compartilhado">Compartilhado</option>
                     </select>
                     <label>Preço acomodação</label>
-                    <input onClick={() => setDiaria} type='text' />
+                            <BaseInput
+                                value={diaria}
+                                placeholder='Preço acomodação'
+                                type='number'
+                                insert={setDiaria}
+                            ></BaseInput>
                     <div>
                         <button onClick={handlePrevious}>Voltar</button>
                         <button className='btn-next' onClick={handleNext}>Próximo</button>
@@ -227,7 +268,12 @@ function Wizard() {
             {step === 5 && (
                 <div className='container-step'>
                     <h2>Regras</h2>
-                    <input onBlur={() => setRegras}></input>
+                            <BaseInput
+                                value={regras}
+                                placeholder='Regras'
+                                type='text'
+                                insert={setRegras}
+                            ></BaseInput>
                     <div>
                         <button onClick={handlePrevious}>Voltar</button>
                         <button className='btn-next' onClick={handleNext}>Próximo</button>

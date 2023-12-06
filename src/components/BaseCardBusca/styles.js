@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   background-color: white;
   box-shadow: #8080803b 0px 0px 10px;
   width: 310px;
-  height: 350px;
+  height: 380px;
   border-radius: 10px;
 
   padding: 20px 20px;
@@ -32,6 +32,22 @@ export const TextWrapper = styled.div`
   margin-top: 30px;
   color: ${colors.darker_grey};
 }
+
+  h3{
+    box-shadow: #8080803b 0px 0px 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: green;
+    background-color: #CCFA76;
+  }
+
+  h4{
+    box-shadow: #8080803b 0px 0px 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #FE1D01;
+    background-color: #F79E93;
+  }
 
   p {
   font-size: 14px;

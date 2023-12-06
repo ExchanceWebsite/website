@@ -24,9 +24,11 @@ function renderizarAcomodacoes(acomodacoes) {
         <BaseCardBusca
           key={subIndex}
           src={obterFotoAleatoria()}
-          name={acomodacao.descricao}
-          adress='Augsburg Strasse'
-          cep='Berlin, Alemanha'
+          id={subIndex+1}
+          desc={acomodacao.descricao}
+          name={acomodacao.host.nome}
+          adress={acomodacao.localidade.pais}
+          cep={acomodacao.localidade.cidade}
         />
       ))}
     </SwiperSlide>
@@ -41,21 +43,22 @@ function obterFotoAleatoria() {
 }
 export default function CarrousselBusca(props) {
   const [acomodacoes, setAcomodacoes] = useState();
-  const hostnamne = localStorage.getItem('nomeHost');
+  const Host = localStorage.getItem('id_host');
 
 
   useEffect(() => {
     if (props.isAcomodacao) {
       // httpFetch.get(`/acomodacoes/${hostnamne}`)
-      httpFetch.get('/acomodacoes') //trocar essa linha para chamada do endpoint que retorna acomodacoes por host
+      httpFetch.get(`/acomodacoes/acomodacoes-host?idHost=${Host}`) //trocar essa linha para chamada do endpoint que retorna acomodacoes por host
         .then((res) => {
           setAcomodacoes(res.data);
+          
         }).catch((err) => {
           console.clear();
           console.log(err.response);
         });
     } else {
-      httpFetch.get('/acomodacoes')
+      httpFetch.get(`/acomodacoes/acomodacoes-host?idHost=${Host}`)
         .then((res) => {
           setAcomodacoes(res.data);
         }).catch((err) => {
