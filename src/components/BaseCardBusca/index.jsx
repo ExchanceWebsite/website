@@ -13,7 +13,7 @@ const BaseCardBusca = ({ onClick, img, alt, id, reservado, name, adress, cep, sr
       <S.Wrapper
         onClick={onClick}>
         <S.TextWrapper>
-          <center>{reservado ? <h4>Reservado</h4> : <h3>Livre</h3>}</center>
+          <center>{reservado  ? <h4>Reservado</h4> : <h3>Livre</h3>}</center>
           <img src={src} />
           <h2>{id} - {name}</h2> 
           <p>{adress}</p>

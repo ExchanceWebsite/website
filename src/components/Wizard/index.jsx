@@ -127,6 +127,8 @@ function Wizard() {
         .then((res) => {
             console.log(res.acomodacoa);
             window.localStorage.setItem('diaria', acomodacoa.diaria)
+            window.localStorage.setItem('entrada', acomodacoa.inicioDisponibilidade)
+            window.localStorage.setItem('saida', acomodacoa.fimDisponibilidade)
             navigate('/conta');
           }).catch((err) => {
             console.log(err.response);

@@ -42,18 +42,7 @@ const Detalhes = () => {
               size='600'
             />
             <S.Content2>
-
               <S.Content3>
-                <BaseButton
-                  border='2px solid blue'
-                  theme='white'
-                  size='240'
-                  children='Chat com o Host'
-                  color={colors.primary_blue}
-                  onClick={() => {
-                    navigate("/chatPage")
-                  }} />
-
                 <BaseButton
                   theme={colors.darker_brown}
                   size='240'

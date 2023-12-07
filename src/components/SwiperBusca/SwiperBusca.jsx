@@ -25,6 +25,7 @@ function renderizarAcomodacoes(acomodacoes) {
           key={subIndex}
           src={obterFotoAleatoria()}
           id={subIndex+1}
+          reservado={acomodacao.reservado}
           desc={acomodacao.descricao}
           name={acomodacao.host.nome}
           adress={acomodacao.localidade.pais}

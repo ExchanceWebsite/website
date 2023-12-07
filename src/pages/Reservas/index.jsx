@@ -11,6 +11,7 @@ import Familia from '../../assets/img-opcao2.png'
 import Info from '../../assets/icons8-informações-42.png'
 import { useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import httpFetch from '../../hooks/httpFetch';
 
 
 
@@ -25,8 +26,46 @@ const Reservas = () => {
   let total = acomod + taxa
   let totalString = String.valueOf(total)
 
-  function reservar() {
-    navigate('/reservaConfirmada')
+  const reservar = () => {
+    const host = {idHostFamily: window.localStorage.getItem('id_host')}
+    const estudante = {idEstudante:  1}
+    const acomodacao = {idAcomodacao: 1}
+    
+
+    const reserva = {
+        estudante: estudante,
+        entrada: window.localStorage.getItem('entrada'),
+        saida:window.localStorage.getItem('saida'),
+        formaPagamento:"cartão",
+        acomodacao: acomodacao,
+        host: host
+    }
+
+
+   /*
+    {
+      "estudante": {
+        "idEstudante": 1
+      },
+      "entrada": "2023-09-03",
+      "saida": "2023-09-05",
+      "formaPagamento": "cartao",
+      "acomodacao": {
+        "idAcomodacao": 1
+      },
+      "host": {
+        "idHostFamily": 1
+      }
+    }
+    */
+    
+    httpFetch.post('/reservas', reserva)
+    .then((res) => {
+        console.log(res.reserva);
+        navigate('/reservaConfirmada')
+      }).catch((err) => {
+        console.log(err.response);
+      });
   }
 
   const initialOptions = {
@@ -71,7 +110,7 @@ const Reservas = () => {
             <h2 onClick={() => navigate('/conta')}>Conta</h2>
           </div>
         </div>
-
+        
         <div id="card">
           <div id="informacoes">
             <div id="imagem">
@@ -80,17 +119,17 @@ const Reservas = () => {
               </div>
             </div>
             <div id="endereco">
-              <p id="endereco-p">Rua Lorem Ipsum Sit, 3000</p>
+              <p id="endereco-p">{window.localStorage.getItem('1adress')}</p>
               <div id="divisoria"></div>
-              <p id='nome-familia'>Família {window.localStorage.getItem('nomeClicado')}</p>
+              <p id='nome-familia'>Família {window.localStorage.getItem('nome')}</p>
               <div id="icon-endereco">
                 <div><img src={ChatPink} alt="" /></div>
                 <div><img src={Info} alt="" /></div>
               </div>
 
               <div id="data">
-                <p id='entrada-saida'>Entrada</p><input value='2023-06-13' type="date" />
-                <p id='entrada-saida'>Sáida</p><input value='2023-07-13' type="date" />
+                <p id='entrada-saida'>Entrada</p><input value={window.localStorage.getItem('entrada')} type="date" />
+                <p id='entrada-saida'>Sáida</p><input value={window.localStorage.getItem('saida')} type="date" />
               </div>
 
               <div id="divisoria"></div>
@@ -98,51 +137,6 @@ const Reservas = () => {
 
           </div>
         </div>
-
-        <div id="card-pagamento">
-          <div id="informacoes-pagamento">
-            <h2>Taxa de acomodação</h2>
-            <h2>{acomod}</h2>
-          </div>
-          <div id="informacoes-pagamento">
-            <h2>Taxa de serviço Exchance</h2>
-            <h2>{taxa}</h2>
-          </div>
-
-          <div id="divisoria"></div>
-
-          <div id="total">
-            <h2>Total</h2>
-            <h2>R$ {total} </h2>
-          </div>
-
-
-          <div id="selecao-pagamento">
-            <h1>Pagamento</h1>
-            <PayPalScriptProvider options={initialOptions}>
-            <PayPalButtons
-                createOrder={(data, actions) => {
-                    return actions.order.create({
-                        purchase_units: [
-                            {
-                                amount: {
-                                    value: "550.00",
-                                },
-                            },
-                        ],
-                    });
-                }}
-                onApprove={(data, actions) => {
-                    return actions.order.capture().then((details) => {
-                        const name = details.payer.name.given_name;
-                        alert(`Transaction completed by ${name}`);
-                    });
-                }}
-            />
-        </PayPalScriptProvider>
-          </div>
-        </div>
-
         <button onClick={reservar} id="reserva">Confirmar reserva</button>
       </div>
     </>
