@@ -7,6 +7,10 @@ export default defineConfig({
   commonjsOptions: {
     esmExternals: true
   },
+  server: {
+    port: 3000,
+    host: true  // definir a porta para 8080
+  }
 })
 
 build: {
