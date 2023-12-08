@@ -95,7 +95,7 @@ function Wizard() {
         setIdHost(window.localStorage.getItem('id_host'));
         setIdLocal(window.localStorage.getItem('id_local'));
         const host = {idHostFamily: window.localStorage.getItem('id_host')}
-        const localidade = {idLocalidade: 2}
+        const localidade = {idLocalidade: 1}
         
 
         const acomodacoa = {

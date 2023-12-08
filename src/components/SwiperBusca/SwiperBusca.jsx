@@ -42,6 +42,7 @@ function obterFotoAleatoria() {
   const indiceAleatorio = Math.floor(Math.random() * mockFotos.length);
   return mockFotos[indiceAleatorio];
 }
+
 export default function CarrousselBusca(props) {
   const [acomodacoes, setAcomodacoes] = useState();
   const Host = localStorage.getItem('id_host');
@@ -49,8 +50,8 @@ export default function CarrousselBusca(props) {
 
   useEffect(() => {
     if (props.isAcomodacao) {
-      // httpFetch.get(`/acomodacoes/${hostnamne}`)
-      httpFetch.get(`/acomodacoes/acomodacoes-host?idHost=${Host}`) //trocar essa linha para chamada do endpoint que retorna acomodacoes por host
+      
+      httpFetch.get(`/acomodacoes/acomodacoes-host?idHost=${Host}`)
         .then((res) => {
           setAcomodacoes(res.data);
           

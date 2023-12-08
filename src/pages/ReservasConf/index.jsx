@@ -65,7 +65,6 @@ const ReservasConf = () => {
               </div>
             </div>
             <div id="endereco">
-              <p id="endereco-p">Rua Lorem Ipsum Sit, 3000</p>
               <div id="divisoria"></div>
               <p id='nome-familia'>Reserva Confirmada </p>
 
