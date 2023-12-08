@@ -15,14 +15,6 @@ pipeline {
                 }
             }
         }
-
-         stage('Fazendo os testes') {
-            steps {
-                script {
-                    echo "testando..."
-                }
-            }
-        }
     }
 
     post {
